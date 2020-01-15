@@ -7,4 +7,4 @@ Approach: We train a monkey to find a gabor patch embedded in perlin noise. We t
 
 To analyze the data, I use a Generalized Linear Model with Tikhonov Regularization. Estimating visual receptive fields using sparse sampling of the visual field (and accompanying neural responses) is an ill-posed problem. Tikhonov Regularization is a generalized form of L2 regularization that is ideal for inverse problems like this one. 
 
-So far, the regularization doesn't appear to improve the results. 
+So far, the Tikhonov regularization doesn't appear to improve the results. 
