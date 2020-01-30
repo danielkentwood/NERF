@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Settings CompactMode="1">
+	<CommandBars Schema="41">
+		<CommandBars>
+			<CommandBar Class="CXTPMenuBar" Type="0" BarID="1" Flags="1119" Style="4194304" Title="Menu Bar" MRUWidth="32767" Closeable="0" ResourceId="128">
+				<Controls>
+					<Control Class="CXTPControlPopup" Type="2" Caption="&amp;File" CommandBarId="16777216"/>
+					<Control Class="CXTPControlPopup" Type="2" Caption="&amp;Edit" CommandBarId="16777218"/>
+					<Control Class="CXTPControlPopup" Type="2" Caption="&amp;View" CommandBarId="16777219"/>
+					<Control Class="CXTPControlPopup" Type="2" Caption="Se&amp;lect" CommandBarId="16777222"/>
+					<Control Class="CXTPControlPopup" Type="2" Caption="&amp;Waveforms" CommandBarId="16777224"/>
+					<Control Class="CXTPControlPopup" Type="2" Caption="&amp;Units" CommandBarId="16777225"/>
+					<Control Class="CXTPControlPopup" Type="2" Caption="&amp;Sort" CommandBarId="16777226"/>
+					<Control Class="CXTPControlPopup" Type="2" Caption="&amp;Tools" CommandBarId="16777230"/>
+					<Control Class="CXTPControlPopup" Type="2" Caption="&amp;Window" CommandBarId="16777232"/>
+					<Control Class="CXTPControlPopup" Type="2" Caption="&amp;Run" CommandBarId="16777235"/>
+					<Control Class="CXTPControlPopup" Type="2" Caption="&amp;Help" CommandBarId="16777236"/>
+				</Controls>
+			</CommandBar>
+			<CommandBar Class="CXTPPopupBar" Type="2" Position="5" BarID="16777216" Style="4194304" Title="File">
+				<Controls>
+					<Control Class="CXTPControlButton" Id="57601" Caption="&amp;Open..." TooltipText="Open" DescriptionText="Open an existing document" ShortcutTextAuto="Ctrl+O"/>
+					<Control Class="CXTPControlPopup" Type="2" Caption="Import" CommandBarId="16777217"/>
+					<Control Class="CXTPControlButton" Id="57602" Caption="&amp;Close" TooltipText="Close" DescriptionText="Close the active document"/>
+					<Control Class="CXTPControlButton" Id="57603" BeginGroup="1" Caption="&amp;Save" TooltipText="Save" DescriptionText="Save the active document" ShortcutTextAuto="Ctrl+S"/>
+					<Control Class="CXTPControlButton" Id="32952" Caption="Save &amp;As..." TooltipText="Save to file of the same type as was loaded" DescriptionText="Save to file of the same type as was loaded"/>
+					<Control Class="CXTPControlButton" Id="32978" BeginGroup="1" Caption="Execute Batch Command File..." TooltipText="Execute Batch" DescriptionText="Execute a batch command file"/>
+					<Control Class="CXTPControlButton" Id="33296" Caption="Edit Batch Command File..." TooltipText="Open an Editor to create or modify batch command files" DescriptionText="Open an Editor to create or modify batch command files"/>
+					<Control Class="CXTPControlButton" Id="33317" Caption="View Log from Last Executed Batch Command File" TooltipText="View Batch Log" DescriptionText="Show the log file resulting from the last command file execution in an editor"/>
+					<Control Class="CXTPControlButton" Id="33194" BeginGroup="1" Caption="Export to New .PLX..." TooltipText="Export data to a new .plx file" DescriptionText="Export data to a new .plx file"/>
+					<Control Class="CXTPControlButton" Id="33473" Caption="Export to New .PL2" TooltipText="Export data to a new .pl2 file" DescriptionText="Export data to a new .pl2 file"/>
+					<Control Class="CXTPControlButton" Id="33195" Caption="Export to .NEX..." TooltipText="Export sorted data to a Nex file" DescriptionText="Export sorted data to a Nex file"/>
+					<Control Class="CXTPControlButton" Id="33196" Caption="Export to .PLX0..." TooltipText="Export data to fast .plx0 files" DescriptionText="Export data to fast .plx0 files"/>
+					<Control Class="CXTPControlButton" Id="33416" BeginGroup="1" Caption="Optimize .PLX file" TooltipText="Convert a raw .PLX file into a .PLX that will load into OFS much faster" DescriptionText="Convert a raw .PLX file into a .PLX that will load into OFS much faster"/>
+					<Control Class="CXTPControlButton" Id="32965" BeginGroup="1" Caption="Export Per-Waveform Data..." TooltipText="Export per-waveform data" DescriptionText="Export Feature Data and Timestamps to text, Matlab or Excel file"/>
+					<Control Class="CXTPControlButton" Id="32998" Caption="Export Per-Unit Data..." TooltipText="Export per unit" DescriptionText="Export per-unit statistics to a text, Matlab, or Excel file"/>
+					<Control Class="CXTPControlButton" Id="32979" Caption="Export Per-Channel Data..." TooltipText="Export per channel" DescriptionText="Export per-channel statistics to a text, Matlab, or Excel file"/>
+					<Control Class="CXTPControlButton" Id="57607" BeginGroup="1" Caption="&amp;Print..." TooltipText="Print" DescriptionText="Print the active document" ShortcutTextAuto="Ctrl+P"/>
+					<Control Class="CXTPControlButton" Id="57609" Caption="Print Pre&amp;view..." TooltipText="Print Preview" DescriptionText="Display full pages"/>
+					<Control Class="CXTPControlButton" Id="57606" Caption="P&amp;rint Setup..." TooltipText="Print Setup" DescriptionText="Change the printer and printing options"/>
+					<Control Class="CXTPControlButton" Id="33024" BeginGroup="1" Caption="Print All Sort Summaries"/>
+					<Control Class="CXTPControlButton" Id="33025" Caption="Send All Sort Summaries to PowerPoint" TooltipText="Send the Sort Summaries for all channels to PowerPoint" DescriptionText="Send the Sort Summaries for all channels to PowerPoint"/>
+					<Control Class="CXTPControlRecentFileList" Id="57616" BeginGroup="1" HideFlags="1" Caption="Recent File" TooltipText="Open this document" DescriptionText="Open this document"/>
+					<Control Class="CXTPControlButton" Id="57665" BeginGroup="1" Caption="E&amp;xit" TooltipText="Exit" DescriptionText="Quit the application; prompts to save documents"/>
+				</Controls>
+			</CommandBar>
+			<CommandBar Class="CXTPPopupBar" Type="2" Position="5" BarID="16777217" Style="4194304" Title="Import">
+				<Controls>
+					<Control Class="CXTPControlButton" Id="33208" Caption="&amp;Alpha Omega File..." TooltipText="Imports an Alpha Omega MAP file" DescriptionText="Imports an Alpha Omega MAP file"/>
+					<Control Class="CXTPControlButton" Id="33426" Caption="A&amp;xion File..." TooltipText="Imports an Axion File" DescriptionText="Imports an Axion File"/>
+					<Control Class="CXTPControlButton" Id="32925" Caption="CED Spike-&amp;2 File..." TooltipText="Imports CED Spike-2 File" DescriptionText="Imports CED Spike-2 File"/>
+					<Control Class="CXTPControlButton" Id="32924" Caption="&amp;Cyberkinetics File..." TooltipText="Imports a Bionic Technologies NEV file" DescriptionText="Imports a Bionic Technologies NEV file"/>
+					<Control Class="CXTPControlButton" Id="33214" Caption="Data &amp;Translation File..." TooltipText="Imports Data Translations file" DescriptionText="Imports Data Translations file"/>
+					<Control Class="CXTPControlButton" Id="32891" Caption="&amp;DataWave File..." TooltipText="Imports a DataWav file" DescriptionText="Imports a DataWav file"/>
+					<Control Class="CXTPControlButton" Id="32906" Caption="&amp;Instrutech File..." TooltipText="Open Instrutech File" DescriptionText="Open Instrutech File"/>
+					<Control Class="CXTPControlButton" Id="32892" Caption="&amp;Multichannel Systems File..." TooltipText="Imports Multichannel Systems File" DescriptionText="Imports Multichannel Systems File"/>
+					<Control Class="CXTPControlButton" Id="33210" Caption="Neuralyn&amp;x File..." TooltipText="Imports a NeuraLynx file" DescriptionText="Imports a NeuraLynx file"/>
+					<Control Class="CXTPControlButton" Id="33211" Caption="&amp;NeuroExplorer File..." TooltipText="Imports a NeuroExplorer file" DescriptionText="Imports a NeuroExplorer file"/>
+					<Control Class="CXTPControlButton" Id="33229" Caption="Neuro&amp;Share Native File..." TooltipText="Imports a Neuroshare Native file" DescriptionText="Imports a Neuroshare Native file"/>
+					<Control Class="CXTPControlButton" Id="32899" Caption="&amp;Panasonic MED File..." TooltipText="Imports a Panasonic MED file" DescriptionText="Imports a Panasonic MED file"/>
+					<Control Class="CXTPControlButton" Id="32893" Caption="&amp;RC Electronics File..." TooltipText="Imports an RC Electronics File" DescriptionText="Imports an RC Electronics File"/>
+					<Control Class="CXTPControlButton" Id="32895" BeginGroup="1" Caption="&amp;Binary File with Continuously Digitized Data..." TooltipText="Imports a data file with continuously digitized data" DescriptionText="Imports a data file with continuously digitized data"/>
+					<Control Class="CXTPControlButton" Id="33213" Caption="&amp;File via NeuroShare..." TooltipText="Import a file with a user-specified Neuroshare DLL" DescriptionText="Import a file with a user-specified Neuroshare DLL"/>
+				</Controls>
+			</CommandBar>
+			<CommandBar Class="CXTPPopupBar" Type="2" Position="5" BarID="16777218" Style="4194304" Title="Edit">
+				<Controls>
+					<Control Class="CXTPControlButton" Id="33445" Caption="Undo Mark Invalid w/f" TooltipText="Undo" DescriptionText="Undo the last action"/>
+					<Control Class="CXTPControlButton" Id="33446" Caption="Redo Mark Invalid w/f" TooltipText="Redo" DescriptionText="Redo the previously undone action"/>
+					<Control Class="CXTPControlButton" Id="32908" BeginGroup="1" Caption="&amp;Reload Channel from File" TooltipText="Reload channel data from the data file" DescriptionText="Reload channel data from the data file"/>
+					<Control Class="CXTPControlButton" Id="33276" Caption="&amp;Previous Channel in History" TooltipText="Previous Channel" DescriptionText="Make the Previously-Viewed Channel the Current Channel"/>
+					<Control Class="CXTPControlButton" Id="33275" Caption="&amp;Next Channel in History" TooltipText="Next Channel" DescriptionText="Make the Next-Viewed Channel the Current Channel"/>
+					<Control Class="CXTPControlButton" Id="57634" BeginGroup="1" Caption="&amp;Copy" TooltipText="Copy" DescriptionText="Copy the selection and put it on the Clipboard" ShortcutTextAuto="Ctrl+C"/>
+					<Control Class="CXTPControlButton" Id="57637" Caption="&amp;Paste" TooltipText="Paste" DescriptionText="Insert Clipboard contents" ShortcutTextAuto="Ctrl+V"/>
+				</Controls>
+			</CommandBar>
+			<CommandBar Class="CXTPPopupBar" Type="2" Position="5" BarID="16777219" Style="4194304" Title="View" TearOffPopup="1" TearOffCaption="Views" TearOffId="244" TearOffWidth="400">
+				<Controls>
+					<Control Class="CXTPControlPopup" Type="2" Caption="Info Grid Views" CommandBarId="16777220"/>
+					<Control Class="CXTPControlButton" Id="33255" Caption="Control Grid"/>
+					<Control Class="CXTPControlButton" Id="33256" Caption="Units" TooltipText="Toggles Units Window/nUnits Window" DescriptionText="Toggles Units Window/nUnits Window"/>
+					<Control Class="CXTPControlButton" Id="33261" Caption="Waveforms" TooltipText="Toggles Waveform Window/nWaveform Window" DescriptionText="Toggles Waveform Window/nWaveform Window"/>
+					<Control Class="CXTPControlButton" Id="32876" Caption="Timeline" TooltipText="Continuous Data Window" DescriptionText="Toggles Continuous Data Window"/>
+					<Control Class="CXTPControlButton" Id="32806" Caption="&amp;2D Clusters" TooltipText="2D Cluster View" DescriptionText="Shows the 2D Cluster View"/>
+					<Control Class="CXTPControlButton" Id="32933" Caption="&amp;3D Clusters" TooltipText="3D Cluster View" DescriptionText="Shows the 3D Cluster View"/>
+					<Control Class="CXTPControlButton" Id="33197" Caption="Surface" TooltipText="Surface View" DescriptionText="Shows the Surface Plot View"/>
+					<Control Class="CXTPControlButton" Id="33322" Caption="Clusters vs Time" TooltipText="Clusters Vs Time View" DescriptionText="Shows the Clusters Vs Time view"/>
+					<Control Class="CXTPControlButton" Id="33361" Caption="Templates vs Time" TooltipText="Templates Vs Time View" DescriptionText="Show a view that indicates how the unit templates evolved as a function of time"/>
+					<Control Class="CXTPControlButton" Id="32904" Caption="&amp;Waveform Inspection" TooltipText="Waveform Inspection" DescriptionText="Shows the Waveform Inspection View"/>
+					<Control Class="CXTPControlButton" Id="32808" Caption="Waveform D&amp;etection" TooltipText="Detection View" DescriptionText="Shows the Waveform Detection View"/>
+					<Control Class="CXTPControlButton" Id="33288" Caption="Continuous Frequency Spectrum" TooltipText="FFT View" DescriptionText="Shows the Continuous Frequency Spectrum View"/>
+					<Control Class="CXTPControlButton" Id="32903" Caption="&amp;Feature vs Feature" TooltipText="Feature vs Feature" DescriptionText="Shows the Feature vs Feature View"/>
+					<Control Class="CXTPControlButton" Id="32956" Caption="&amp;Sorting Summary" TooltipText="Sort Summary" DescriptionText="Display a printable summary page of the sorting done on this channel."/>
+					<Control Class="CXTPControlButton" Id="32970" Caption="&amp;PCA Results" TooltipText="PCA Results" DescriptionText="Shows the PCA Results view"/>
+					<Control Class="CXTPControlButton" Id="33072" Caption="&amp;ISI Histograms" TooltipText="ISI Histograms" DescriptionText="Shows the Unit ISI Histograms View"/>
+					<Control Class="CXTPControlButton" Id="33094" Caption="Cross-Correlograms" TooltipText="Cross-Correlograms" DescriptionText="Shows the Cross-Correlograms View"/>
+					<Control Class="CXTPControlButton" Id="33114" Caption="Rasters" TooltipText="Rasters View" DescriptionText="Shows the Rasters View"/>
+					<Control Class="CXTPControlButton" Id="33289" Caption="Scan Graph" TooltipText="Scan Results" DescriptionText="Show a graphical view of Scan results"/>
+					<Control Class="CXTPControlButton" Id="33346" Caption="Sort Quality vs Time Segment Graph" TooltipText="Sort Quality Vs Time" DescriptionText="Show a graph of sort quality statistics for each time segment"/>
+					<Control Class="CXTPControlButton" Id="33448" Caption="Waveforms (Legacy)" TooltipText="Toggles the Legacy version of the Waveform Window/nLegacy Waveform Window" DescriptionText="Toggles the Legacy version of the Waveform Window/nLegacy Waveform Window"/>
+					<Control Class="CXTPControlPopup" Type="2" BeginGroup="1" Caption="&amp;Animate" CommandBarId="16777221"/>
+				</Controls>
+			</CommandBar>
+			<CommandBar Class="CXTPPopupBar" Type="2" Position="5" BarID="16777220" Style="4194304" Title="Info Grid Views">
+				<Controls>
+					<Control Class="CXTPControlButton" Id="32980" Caption="Channels" TooltipText="Channels View" DescriptionText="Shows the Channels View"/>
+					<Control Class="CXTPControlButton" Id="32981" Caption="Channel Parameters"/>
+					<Control Class="CXTPControlButton" Id="32983" Caption="File Summary"/>
+					<Control Class="CXTPControlButton" Id="33323" Caption="Time Segments"/>
+					<Control Class="CXTPControlButton" Id="32982" Caption="Sort Details"/>
+					<Control Class="CXTPControlButton" Id="32984" Caption="Events"/>
+					<Control Class="CXTPControlButton" Id="32985" Caption="Stats"/>
+					<Control Class="CXTPControlButton" Id="32986" Caption="PCA"/>
+					<Control Class="CXTPControlButton" Id="32988" Caption="Scan"/>
+					<Control Class="CXTPControlButton" Id="32987" Caption="Templates"/>
+					<Control Class="CXTPControlButton" Id="33386" Caption="Adaptive Templates History"/>
+					<Control Class="CXTPControlButton" Id="33168" Caption="Channel Map"/>
+					<Control Class="CXTPControlButton" Id="33415" Caption="Sources"/>
+					<Control Class="CXTPControlButton" Id="46063" Caption="Messages"/>
+				</Controls>
+			</CommandBar>
+			<CommandBar Class="CXTPPopupBar" Type="2" Position="5" BarID="16777221" Style="4194304" Title="Animate" TearOffPopup="1" TearOffCaption="Animate" TearOffId="255" TearOffWidth="400">
+				<Controls>
+					<Control Class="CXTPControlButton" Id="33134" Caption="Play" TooltipText="Animate Time" DescriptionText="Animate Time"/>
+					<Control Class="CXTPControlButton" Id="33135" Caption="Pause" TooltipText="Pause" DescriptionText="Pause"/>
+					<Control Class="CXTPControlButton" Id="33165" Caption="Stop" TooltipText="Stop Animation" DescriptionText="Stop"/>
+					<Control Class="CXTPControlButton" Id="33148" BeginGroup="1" Caption="Slower" TooltipText="Slower" DescriptionText="Slower"/>
+					<Control Class="CXTPControlButton" Id="33149" Caption="Faster" TooltipText="Faster" DescriptionText="Faster"/>
+					<Control Class="CXTPControlButton" Id="33152" Caption="Reset to 1X Speed" TooltipText="Normal Speed" DescriptionText="Show at Normal Speed"/>
+					<Control Class="CXTPControlButton" Id="33136" Caption="Rewind" TooltipText="Rewind" DescriptionText="Rewind to Beginning"/>
+					<Control Class="CXTPControlButton" Id="33162" Caption="Reverse" TooltipText="Reverse" DescriptionText="Reverse Animation"/>
+					<Control Class="CXTPControlButton" Id="33155" BeginGroup="1" Caption="Loop" TooltipText="Looping" DescriptionText="Toggle Looping"/>
+				</Controls>
+			</CommandBar>
+			<CommandBar Class="CXTPPopupBar" Type="2" Position="5" BarID="16777222" Style="4194304" Title="Select" TearOffPopup="1" TearOffCaption="Select" TearOffId="259" TearOffWidth="400">
+				<Controls>
+					<Control Class="CXTPControlButton" Id="33271" Caption="Next Channel" TooltipText="Next Channel" DescriptionText="Select Next Channel"/>
+					<Control Class="CXTPControlButton" Id="33272" Caption="Previous Channel" TooltipText="Previous Channel" DescriptionText="Select Previous Channel"/>
+					<Control Class="CXTPControlButton" Id="33267" BeginGroup="1" Caption="Next Unit" TooltipText="Next Unit" DescriptionText="Select Next Unit"/>
+					<Control Class="CXTPControlButton" Id="33268" Caption="Previous Unit" TooltipText="Previous Unit" DescriptionText="Select Previous Unit"/>
+					<Control Class="CXTPControlButton" Id="33269" BeginGroup="1" Caption="Next Waveform" TooltipText="Next Waveform" DescriptionText="Select Next Waveform"/>
+					<Control Class="CXTPControlButton" Id="33270" Caption="Previous Waveform" TooltipText="Previous Waveform" DescriptionText="Select Previous Waveform"/>
+					<Control Class="CXTPControlButton" Id="33336" BeginGroup="1" Caption="Next Segment" TooltipText="Next Segment" DescriptionText="Select Next Segment"/>
+					<Control Class="CXTPControlButton" Id="33335" Caption="Previous Segment" TooltipText="Previous Segment" DescriptionText="Select Previous Segment"/>
+					<Control Class="CXTPControlPopup" Type="2" BeginGroup="1" Caption="Feature Space Definitions" CommandBarId="16777223"/>
+				</Controls>
+			</CommandBar>
+			<CommandBar Class="CXTPPopupBar" Type="2" Position="5" BarID="16777223" Style="4194304" Title="Feature Space Definitions">
+				<Controls>
+					<Control Class="CXTPControlButton" Id="33086" Caption="Feature Space 1" TooltipText="Feature Space 1" DescriptionText="Select Stored Feature Space 1"/>
+					<Control Class="CXTPControlButton" Id="33085" Caption="Feature Space 2" TooltipText="Feature Space 2" DescriptionText="Select Stored Feature Space 2"/>
+					<Control Class="CXTPControlButton" Id="33092" Caption="Feature Space 3" TooltipText="Feature Space 3" DescriptionText="Select Stored Feature Space 3"/>
+					<Control Class="CXTPControlButton" Id="33091" Caption="Define Feature Spaces..."/>
+				</Controls>
+			</CommandBar>
+			<CommandBar Class="CXTPPopupBar" Type="2" Position="5" BarID="16777224" Style="4194304" Title="Waveforms">
+				<Controls>
+					<Control Class="CXTPControlButton" Id="33061" Caption="View Only Currently &amp;Selected Unit(s)"/>
+					<Control Class="CXTPControlButton" Id="33170" Caption="View Only U&amp;nsorted Waveforms"/>
+					<Control Class="CXTPControlButton" Id="33341" BeginGroup="1" Caption="View Only Selected Time Segment"/>
+					<Control Class="CXTPControlButton" Id="32886" Caption="Create Time Segments..." TooltipText="Create Time Segments" DescriptionText="Create Time Segments"/>
+					<Control Class="CXTPControlButton" Id="33053" BeginGroup="1" Caption="Use Only Currently &amp;Visible Waveforms" TooltipText="Use Only Visible" DescriptionText="In waveform selection, use only the currently visible waveforms"/>
+					<Control Class="CXTPControlButton" Id="33056" Caption="Use Only &amp;Unsorted Waveforms" TooltipText="Use Only Unsorted" DescriptionText="In waveform selection, use only the currently unsorted waveforms"/>
+					<Control Class="CXTPControlButton" Id="33013" BeginGroup="1" Caption="&amp;Invalidate Waveforms" TooltipText="Invalidate Wfs" DescriptionText="Invalidate Selected Waveforms"/>
+					<Control Class="CXTPControlButton" Id="33064" Caption="Invalidate All &amp;Except Selected Waveforms" TooltipText="Invalidate All Except Selected" DescriptionText="Invalidate All Except Selected Waveforms"/>
+					<Control Class="CXTPControlButton" Id="32877" Caption="&amp;Mark All Waveforms As Valid" TooltipText="Mark All Waveforms As Valid" DescriptionText="Mark All Waveforms As Valid"/>
+					<Control Class="CXTPControlButton" Id="33014" Caption="Invalidate All Waveforms in Selected Unit" TooltipText="Invalidates all waveforms in the selected unit" DescriptionText="Invalidates all waveforms in the selected unit"/>
+					<Control Class="CXTPControlButton" Id="32880" BeginGroup="1" Caption="&amp;Add Waveforms to the Selected Unit" TooltipText="Add Wfs" DescriptionText="Add Waveforms to the Selected Unit"/>
+					<Control Class="CXTPControlButton" Id="32881" Caption="&amp;Remove Waveforms from the Selected Unit" TooltipText="Remove Wfs" DescriptionText="Remove Waveforms from the Selected Unit"/>
+					<Control Class="CXTPControlButton" Id="33071" Caption="Remove All Except Selected Waveforms from the Selected Unit" TooltipText="Remove All Except Selected" DescriptionText="Remove All Except Selected Waveforms"/>
+					<Control Class="CXTPControlButton" Id="33434" BeginGroup="1" Caption="Up-sample Continuous Data..." TooltipText="Up-sample low frequency data via interpolation" DescriptionText="Up-sample low frequency data via interpolation"/>
+					<Control Class="CXTPControlButton" Id="33204" Caption="Filter Continuous Data..." TooltipText="Apply a filter to continuous data" DescriptionText="Apply a filter to continuous data"/>
+					<Control Class="CXTPControlButton" Id="33185" Caption="Detect..." TooltipText="Extract waveforms from continuous data" DescriptionText="Extract waveforms from continuous data"/>
+					<Control Class="CXTPControlButton" Id="32923" Caption="&amp;Align..." TooltipText="Align Waveforms" DescriptionText="Align Waveforms"/>
+					<Control Class="CXTPControlButton" Id="32954" Caption="Re-&amp;Threshold..." TooltipText="Invalidates waveforms that do not cross a new (higher) threshold" DescriptionText="Invalidates waveforms that do not cross a new (higher) threshold"/>
+					<Control Class="CXTPControlButton" Id="32953" Caption="Remove Short &amp;ISI Waveforms" TooltipText="Removes waveforms with short inter-spike intervals from clusters" DescriptionText="Removes waveforms with short inter-spike intervals from clusters"/>
+					<Control Class="CXTPControlButton" Id="33049" BeginGroup="1" Caption="Auto-&amp;Zoom Waveform Displays"/>
+				</Controls>
+			</CommandBar>
+			<CommandBar Class="CXTPPopupBar" Type="2" Position="5" BarID="16777225" Style="4194304" Title="Units">
+				<Controls>
+					<Control Class="CXTPControlButton" Id="33026" Caption="&amp;Select Unit(s)..." TooltipText="Select Units..." DescriptionText="Shows a dialog that allows selection of units"/>
+					<Control Class="CXTPControlButton" Id="33263" BeginGroup="1" Caption="&amp;Delete Selected Unit" TooltipText="Delete Unit" DescriptionText="Delete Unit"/>
+					<Control Class="CXTPControlButton" Id="32878" Caption="Delete A&amp;ll Units" TooltipText="Delete All Units" DescriptionText="Delete All Units"/>
+					<Control Class="CXTPControlButton" Id="33226" BeginGroup="1" Caption="Com&amp;bine Units..." TooltipText="Combine Units" DescriptionText="Combine Units"/>
+					<Control Class="CXTPControlButton" Id="33028" Caption="S&amp;wap Units..." TooltipText="Swap Units" DescriptionText="Swap Units"/>
+					<Control Class="CXTPControlButton" Id="33014" Caption="&amp;Invalidate All Waveforms in Selected Unit" TooltipText="Invalidates all waveforms in the selected unit" DescriptionText="Invalidates all waveforms in the selected unit"/>
+					<Control Class="CXTPControlButton" Id="32880" BeginGroup="1" Caption="Add Waveforms to the Selected Unit" TooltipText="Add Wfs" DescriptionText="Add Waveforms to the Selected Unit"/>
+					<Control Class="CXTPControlButton" Id="32881" Caption="Remove Waveforms from the Selected Unit" TooltipText="Remove Wfs" DescriptionText="Remove Waveforms from the Selected Unit"/>
+					<Control Class="CXTPControlButton" Id="33071" Caption="Remove All Except Selected Waveforms from the Selected Unit" TooltipText="Remove All Except Selected" DescriptionText="Remove All Except Selected Waveforms"/>
+					<Control Class="CXTPControlButton" Id="33225" BeginGroup="1" Caption="Automatically Recalculate Unit Templates after Each Change" TooltipText="Auto Recalc Templates" DescriptionText="Automatically recalculate the unit templates after each change"/>
+					<Control Class="CXTPControlButton" Id="33223" Caption="Calculate Unit Templates from Existing Units" TooltipText="Calculate Unit Templates from the waveforms in the existing unit" DescriptionText="Calculate Unit Templates from the waveforms in the existing unit"/>
+					<Control Class="CXTPControlButton" Id="33227" Caption="Automatically Recalculate Fit Tolerances after Each Change" TooltipText="Auto Recalc Fit Tolerances" DescriptionText="Automatically recalculate the unit fit tolerances after each change"/>
+					<Control Class="CXTPControlButton" Id="33224" Caption="Calculate Fit Tolerances from Existing Units" TooltipText="Calculate Fit Tolerances from the waveforms in the Existing Units" DescriptionText="Calculate Fit Tolerances from the waveforms in the Existing Units"/>
+				</Controls>
+			</CommandBar>
+			<CommandBar Class="CXTPPopupBar" Type="2" Position="5" BarID="16777226" Style="4194304" Title="Sort">
+				<Controls>
+					<Control Class="CXTPControlPopup" Type="2" Caption="Change Sort Method" CommandBarId="16777227"/>
+					<Control Class="CXTPControlButton" Id="33474" BeginGroup="1" Caption="Perform Automatic Sorting..." TooltipText="Perform automatic sorting on either the current channel or all channels" DescriptionText="Perform automatic sorting on either the current channel or all channels"/>
+					<Control Class="CXTPControlButton" Id="33478" Caption="Perform Template Sorting..." TooltipText="Perform template-based sorting on either the current channel or all channels" DescriptionText="Perform template-based sorting on either the current channel or all channels"/>
+					<Control Class="CXTPControlButton" Id="33320" BeginGroup="1" Caption="Apply Template Sorting with Current Templates" TooltipText="Apply Templates" DescriptionText="Apply the current templates to re-sort all spikes"/>
+					<Control Class="CXTPControlButton" Id="33321" Caption="Apply Template Sorting with Adaptive Templates" TooltipText="Apply Adaptive Templates" DescriptionText="Re-sort all spikes using template sorting, but adapt the templates as the sorting proceeds"/>
+					<Control Class="CXTPControlButton" Id="33450" Caption="Adaptive Templates Settings..." TooltipText="Adaptive Templates Settings" DescriptionText="Show settings that control adaptive template sorting"/>
+					<Control Class="CXTPControlPopup" Type="2" BeginGroup="1" Caption="Save Sorting to .SORT File" CommandBarId="16777228"/>
+					<Control Class="CXTPControlPopup" Type="2" Caption="Restore Sorting from .SORT File" CommandBarId="16777229"/>
+					<Control Class="CXTPControlButton" Id="32894" Caption="Save Sort Info to .TPL File..." TooltipText="Save Principal Components, Contours and Templates to a .tpl file" DescriptionText="Save Principal Components, Contours and Templates to a .tpl file"/>
+					<Control Class="CXTPControlButton" Id="32898" Caption="Sort Using  .TPL File..." TooltipText="Load Principal Components and Templates and Sort the File Using Saved Templates" DescriptionText="Load Principal Components and Templates and Sort the File Using Saved Templates"/>
+					<Control Class="CXTPControlButton" Id="33160" Caption="Sort Using .NEX File..." TooltipText="Apply the unit assignments from a .nex file to the currently loaded file." DescriptionText="Sort From .NEX File"/>
+					<Control Class="CXTPControlButton" Id="32992" Caption="Update .EXP File with Sort Info..." TooltipText="Write templates to a SortClient .exp file for online use" DescriptionText="Update an .exp file"/>
+					<Control Class="CXTPControlButton" Id="33352" BeginGroup="1" Caption="Delete All Companion .SCAN Files " TooltipText="Delete all .SCAN files associated with the current file" DescriptionText="Delete all .SCAN files associated with the current file"/>
+					<Control Class="CXTPControlButton" Id="33023" BeginGroup="1" Caption="Stop Sorting" TooltipText="Stop the current sorting algorithm" DescriptionText="Stop the current sorting algorithm"/>
+				</Controls>
+			</CommandBar>
+			<CommandBar Class="CXTPPopupBar" Type="2" Position="5" BarID="16777227" Style="4194304" Title="Change Sort Method">
+				<Controls>
+					<Control Class="CXTPControlButton" Id="33051" Caption="Use Templates from Designated Waveforms" TooltipText="Define a unit by specifying an existing waveform to be the template" DescriptionText="Define a unit by specifying an existing waveform to be the template"/>
+					<Control Class="CXTPControlButton" Id="33411" Caption="Use Boxes" TooltipText="Define a unit by specifying boxes that the waveform must pass through" DescriptionText="Define a unit by specifying boxes that the waveform must pass through"/>
+					<Control Class="CXTPControlButton" Id="33047" Caption="Use K-Means" TooltipText="Use K-Means Algorithm to Define Clusters" DescriptionText="Use K-Means Algorithm to Define Clusters"/>
+					<Control Class="CXTPControlButton" Id="33016" Caption="Use Standard E-M" TooltipText="Use Standard Expectation Maximization Algorithm to Define Clusters" DescriptionText="Use Standard Expectation Maximization Algorithm to Define Clusters"/>
+					<Control Class="CXTPControlButton" Id="32943" Caption="Use Valley-Seeking" TooltipText="Use Automatic Standard Expectation Maximization Algorithm to Define Clusters" DescriptionText="Use Automatic Standard Expectation Maximization Algorithm to Define Clusters"/>
+					<Control Class="CXTPControlButton" Id="33017" Caption="Use T-Distribution E-M " TooltipText="Use a Expectation Maximization Algorithm based on the T-Distribution for Defining Clusters" DescriptionText="Use a Expectation Maximization Algorithm based on the T-Distribution for Defining Clusters"/>
+					<Control Class="CXTPControlButton" Id="33301" Caption="Use Scanning K-Means " TooltipText="Scan over Number of Units using K-Means Sorting" DescriptionText="Scan over Number of Units using K-Means Sorting"/>
+					<Control Class="CXTPControlButton" Id="33302" Caption="Use Scanning Standard E-M " TooltipText="Scan over Number of Units using Standard E-M Sorting" DescriptionText="Scan over Number of Units using Standard E-M Sorting"/>
+					<Control Class="CXTPControlButton" Id="33389" Caption="Use Scanning Valley Seeking" TooltipText="Scan over Parzen Multipliers using Valley Seeking Sorting" DescriptionText="Scan over Parzen Multipliers using Valley Seeking Sorting"/>
+					<Control Class="CXTPControlButton" Id="33390" Caption="Use Scanning T-Distribution E-M" TooltipText="Scan over D.O.F. Multiplier using T-Distribution E-M Sorting" DescriptionText="Scan over D.O.F. Multiplier using T-Distribution E-M Sorting"/>
+				</Controls>
+			</CommandBar>
+			<CommandBar Class="CXTPPopupBar" Type="2" Position="5" BarID="16777228" Style="4194304" Title="Save Sorting to .SORT File">
+				<Controls>
+					<Control Class="CXTPControlButton" Id="33354" Caption="Save Sorting 1" TooltipText="Save to Slot 1" DescriptionText="Save the current sorting to slot 1 for later recall"/>
+					<Control Class="CXTPControlButton" Id="33355" Caption="Save Sorting 2" TooltipText="Save to Slot 2" DescriptionText="Save the current sorting to slot 2 for later recall"/>
+					<Control Class="CXTPControlButton" Id="33356" Caption="Save to File..."/>
+				</Controls>
+			</CommandBar>
+			<CommandBar Class="CXTPPopupBar" Type="2" Position="5" BarID="16777229" Style="4194304" Title="Restore Sorting from .SORT File">
+				<Controls>
+					<Control Class="CXTPControlButton" Id="33358" Caption="Restore Sorting 1" TooltipText="Recall from Slot 1" DescriptionText="Recall the previously-saved sorting from slot 1"/>
+					<Control Class="CXTPControlButton" Id="33359" Caption="Restore Sorting 2" TooltipText="Recall from Slot 2" DescriptionText="Recall the previously-saved sorting from slot 2"/>
+					<Control Class="CXTPControlButton" Id="33360" Caption="Restore from File..."/>
+				</Controls>
+			</CommandBar>
+			<CommandBar Class="CXTPPopupBar" Type="2" Position="5" BarID="16777230" Style="4194304" Title="Tools">
+				<Controls>
+					<Control Class="CXTPControlButton" Id="1012" Caption="&amp;Recalculate the Principal Components..." TooltipText="Recalculate PCA" DescriptionText="Recalculate Principal Components"/>
+					<Control Class="CXTPControlButton" Id="32923" BeginGroup="1" Caption="&amp;Align Waveforms..." TooltipText="Align Waveforms" DescriptionText="Align Waveforms"/>
+					<Control Class="CXTPControlButton" Id="33384" Caption="Adjust &amp;Gains..." TooltipText="Display the Adjust Gains tool" DescriptionText="Display the Adjust Gains tool"/>
+					<Control Class="CXTPControlButton" Id="33184" Caption="Invert Waveforms" TooltipText="Invert Waveforms" DescriptionText="Invert Waveforms"/>
+					<Control Class="CXTPControlButton" Id="32954" Caption="Re-&amp;Threshold Waveforms..." TooltipText="Invalidates waveforms that do not cross a new (higher) threshold" DescriptionText="Invalidates waveforms that do not cross a new (higher) threshold"/>
+					<Control Class="CXTPControlButton" Id="32968" Caption="I&amp;nterval Selection..." TooltipText="Interval Selection" DescriptionText="Invalidate spike waveforms based on Events"/>
+					<Control Class="CXTPControlButton" Id="32953" Caption="Remove Short &amp;ISI Waveforms" TooltipText="Removes waveforms with short inter-spike intervals from clusters" DescriptionText="Removes waveforms with short inter-spike intervals from clusters"/>
+					<Control Class="CXTPControlButton" Id="32989" Caption="Remove &amp;Outliers" TooltipText="Removes waveforms further than Outlier Limit sigmas from cluster centers" DescriptionText="Removes waveforms further than Outlier Limit sigmas from cluster centers"/>
+					<Control Class="CXTPControlButton" Id="32991" Caption="Assign Unsorted to Closest Unit" TooltipText="Assign Unsorted" DescriptionText="Assigns unsorted points membership in the nearest unit, subject to the Outlier Threshold."/>
+					<Control Class="CXTPControlButton" Id="33182" Caption="Create Events at Unit Firing Times..." TooltipText="Create Events for Unit Firings" DescriptionText="Creates new Events at the times that a selected unit fired"/>
+					<Control Class="CXTPControlButton" Id="33189" Caption="Invalidate Cross-Channel Artifacts..." TooltipText="Invalidates time-coincident artifacts across all channels" DescriptionText="Invalidates time-coincident artifacts across all channels"/>
+					<Control Class="CXTPControlButton" Id="33468" Caption="Invalidate High Amplitude Artifacts..." TooltipText="Invalidates high-amplitude spikes as artifacts " DescriptionText="Invalidates high-amplitude spikes as artifacts "/>
+					<Control Class="CXTPControlButton" Id="33232" Caption="Density Leveling" TooltipText="Invalidates waveforms in strong clusters to make weak ones easier to sort" DescriptionText="Invalidates waveforms in strong clusters to make weak ones easier to sort"/>
+					<Control Class="CXTPControlPopup" Type="2" BeginGroup="1" Caption="All Options" CommandBarId="16777231"/>
+					<Control Class="CXTPControlButton" Id="32781" Caption="&amp;Options..." TooltipText="Options" DescriptionText="Open the Options dialog"/>
+					<Control Class="CXTPControlButton" Id="33215" Caption="Data Import Options..." TooltipText="Data Import Options" DescriptionText="Show Options Related to Data Import/Export"/>
+				</Controls>
+			</CommandBar>
+			<CommandBar Class="CXTPPopupBar" Type="2" Position="5" BarID="16777231" Style="4194304" Title="All Options">
+				<Controls>
+					<Control Class="CXTPControlButton" Id="33395" Caption="Reset to Defaults..." TooltipText="Reset all Options to factor defaults" DescriptionText="Reset all Options to factor defaults"/>
+					<Control Class="CXTPControlButton" Id="33396" Caption="Save to File..." TooltipText="Save all Options values to an external file that can be restored later" DescriptionText="Save all Options values to an external file that can be restored later"/>
+					<Control Class="CXTPControlButton" Id="33397" Caption="Restore from File..." TooltipText="Restore all Options values from a previously-saved extrenal file" DescriptionText="Restore all Options values from a previously-saved extrenal file"/>
+				</Controls>
+			</CommandBar>
+			<CommandBar Class="CXTPPopupBar" Type="2" Position="5" BarID="16777232" Style="4194304" Title="Window">
+				<Controls>
+					<Control Class="CXTPControlPopup" Type="2" Caption="Theme" CommandBarId="16777233"/>
+					<Control Class="CXTPControlPopup" Type="2" Caption="Layout" CommandBarId="16777234"/>
+					<Control Class="CXTPControlButton" Id="46004" BeginGroup="1" Caption="Customize..." TooltipText="Customize Tools Menu" DescriptionText="Customize the entries in the Tools menu"/>
+				</Controls>
+			</CommandBar>
+			<CommandBar Class="CXTPPopupBar" Type="2" Position="5" BarID="16777233" Style="4194304" Title="Theme">
+				<Controls>
+					<Control Class="CXTPControlButton" Id="46010" Caption="Plexon Blue"/>
+					<Control Class="CXTPControlButton" Id="46062" Caption="Plexon Blue Vista"/>
+					<Control Class="CXTPControlButton" Id="46009" Caption="Icy Grey"/>
+					<Control Class="CXTPControlButton" Id="46005" BeginGroup="1" Caption="Text Below Toolbar Icons" TooltipText="Show text below toolbar icons" DescriptionText="Show text below toolbar icons"/>
+					<Control Class="CXTPControlButton" Id="46067" Caption="Hide Window Title Bars" TooltipText="Hide the top title bars of the contained views" DescriptionText="Hide the top title bars of the contained views" ShortcutTextAuto="Ctrl+T"/>
+				</Controls>
+			</CommandBar>
+			<CommandBar Class="CXTPPopupBar" Type="2" Position="5" BarID="16777234" Style="4194304" Title="Layout" TearOffPopup="1" TearOffCaption="Layout" TearOffId="46016" TearOffWidth="400">
+				<Controls>
+					<Control Class="CXTPControlButton" Id="46011" Caption="Reset to Default Layout" TooltipText="Reset Layout" DescriptionText="Reset to factory-default layout"/>
+					<Control Class="CXTPControlButton" Id="46014" BeginGroup="1" Caption="Apply Layout 1" TooltipText="Apply Layout 1" DescriptionText="Show Previously-Saved Layout 1"/>
+					<Control Class="CXTPControlButton" Id="46015" Caption="Apply Layout 2" TooltipText="Apply Layout 2" DescriptionText="Show Previously-Saved Layout 2"/>
+					<Control Class="CXTPControlButton" Id="46013" Caption="Load Layout From File..." TooltipText="Load Layout File" DescriptionText="Load a previously-saved layout from a file"/>
+					<Control Class="CXTPControlButton" Id="46065" BeginGroup="1" Caption="Save As Layout 1" TooltipText="Save Layout 1" DescriptionText="Save the current window layout as Layout 1"/>
+					<Control Class="CXTPControlButton" Id="46066" Caption="Save As Layout 2" TooltipText="Save Layout 2" DescriptionText="Save the current window layout as Layout 2"/>
+					<Control Class="CXTPControlButton" Id="46012" Caption="Save Layout to File..." TooltipText="Save Layout File" DescriptionText="Save the current layout to a file for future use"/>
+				</Controls>
+			</CommandBar>
+			<CommandBar Class="CXTPPopupBar" Type="2" Position="5" BarID="16777235" Style="4194304" Title="Run" TearOffPopup="1" TearOffCaption="Tools" TearOffId="14301" TearOffWidth="400">
+				<Controls>
+					<Control Class="CCustomToolsMenu" Id="46003" HideFlags="1" Caption="ToolsGoHere"/>
+				</Controls>
+			</CommandBar>
+			<CommandBar Class="CXTPPopupBar" Type="2" Position="5" BarID="16777236" Style="4194304" Title="Help">
+				<Controls>
+					<Control Class="CXTPControlButton" Id="57667" Caption="&amp;Help Topics" TooltipText="Help Topics" DescriptionText="List Help topics"/>
+					<Control Class="CXTPControlButton" Id="32964" Caption="Quick &amp;Key Reference" TooltipText="Quick Key Reference " DescriptionText="Display a quick cheat-sheet for keyboard and mouse commands"/>
+					<Control Class="CXTPControlButton" Id="33299" Caption="Quick &amp;Batch Reference" TooltipText="Quick Batch Reference " DescriptionText="Display a quick cheat-sheet for batch language commands"/>
+					<Control Class="CXTPControlButton" Id="57664" BeginGroup="1" Caption="&amp;About Offline Sorter..." TooltipText="About" DescriptionText="Display program information, version number and copyright"/>
+				</Controls>
+			</CommandBar>
+		</CommandBars>
+		<Layout>
+			<DockState Version="41" ScreenSize="1920, 1080" Count="10">
+				<BarInfo0 BarId="1" MRUWidth="32767" MRUDockPos="-1, 0, 1919, 25"/>
+				<BarInfo1 BarId="128" MRUWidth="32767" PointPos="0, 25" MRUDockPos="-1, 25, 332, 54"/>
+				<BarInfo2 BarId="244" MRUWidth="32767" PointPos="333, 25" MRUDockPos="332, 24, 729, 53"/>
+				<BarInfo3 BarId="259" MRUWidth="32767" PointPos="730, 25" MRUDockPos="726, 25, 1121, 51"/>
+				<BarInfo4 BarId="252" MRUWidth="32767" PointPos="947, 25" MRUDockPos="941, 25, 1156, 51"/>
+				<BarInfo5 BarId="255" MRUWidth="32767" PointPos="1372, 25" MRUDockPos="1364, 25, 1787, 54"/>
+				<BarInfo6 BarId="248" MRUWidth="32767" MRUDockPosition="3"/>
+				<BarInfo7 BarId="254" MRUWidth="32767" MRUDockPosition="3" PointPos="0, 200" MRUDockPos="0, 199, 26, 398"/>
+				<BarInfo8 BarId="250" MRUWidth="32767" MRUDockPosition="3" PointPos="0, 462" MRUDockPos="0, 460, 26, 721"/>
+				<BarInfo9 BarId="246" MRUWidth="32767" MRUDockPosition="3" PointPos="0, 530" MRUDockPos="0, 527, 26, 594"/>
+			</DockState>
+			<DockBars>
+				<DockBar0 Count="9" Id1="1" Id3="244" Id4="128" Id5="255" Id6="252" Id7="259"/>
+				<DockBar3 Count="6" Id1="246" Id2="250" Id3="254" Id4="248"/>
+			</DockBars>
+		</Layout>
+		<Shortcut Id="57669" Key="Shift+F1"/>
+		<Shortcut Id="57634" Key="Ctrl+C"/>
+		<Shortcut Id="57634" Key="Ctrl+Ins"/>
+		<Shortcut Id="57635" Key="Shift+Del"/>
+		<Shortcut Id="57635" Key="Ctrl+X"/>
+		<Shortcut Id="57637" Key="Ctrl+V"/>
+		<Shortcut Id="57637" Key="Shift+Ins"/>
+		<Shortcut Id="57643" Key="Alt+Backspace"/>
+		<Shortcut Id="57643" Key="Ctrl+Z"/>
+		<Shortcut Id="57601" Key="Ctrl+O"/>
+		<Shortcut Id="57607" Key="Ctrl+P"/>
+		<Shortcut Id="57603" Key="Ctrl+S"/>
+		<Shortcut Id="57670" Key="F1"/>
+		<Shortcut Id="57680" Key="F6"/>
+		<Shortcut Id="57681" Key="Shift+F6"/>
+		<Shortcut Id="57644" Key="Ctrl+Y"/>
+		<Shortcut Id="46067" Key="Ctrl+T"/>
+	</CommandBars>
+	<DockingPane>
+		<Summary Panes="50" TopContainer="21" Client="30"/>
+		<Pane-1 Type="0" DockingCX="640" DockingCY="254" Title="Units\n\n" ID="101" IconID="33256" DockingHolder="28" LastHolder="28" MinTrackX="30" MinTrackY="30"/>
+		<Pane-2 Type="0" DockingCX="640" DockingCY="764" Title="2D Clusters\n\n" ID="102" IconID="32806" Options="16" DockingHolder="29" FloatingHolder="44" LastHolder="29" MinTrackX="30" MinTrackY="30"/>
+		<Pane-3 Type="0" DockingCX="640" DockingCY="764" Title="3D Clusters\n\n" ID="103" IconID="32933" Options="16" DockingHolder="32" FloatingHolder="50" LastHolder="32" MinTrackX="30" MinTrackY="30"/>
+		<Pane-4 Type="0" DockingCX="640" DockingCY="764" Title="Surface\n\n" ID="104" IconID="33197" Options="16" DockingHolder="29" FloatingHolder="47" LastHolder="29" MinTrackX="30" MinTrackY="30"/>
+		<Pane-5 Type="0" DockingCX="640" DockingCY="764" Title="Waveform Detection\n\n" ID="105" IconID="32808" Options="16" DockingHolder="29" LastHolder="29" MinTrackX="30" MinTrackY="30"/>
+		<Pane-6 Type="0" DockingCX="213" DockingCY="764" Title="Control Grid\n\n" ID="106" IconID="33255" DockingHolder="26" LastHolder="26" MinTrackX="30" MinTrackY="30"/>
+		<Pane-7 Type="0" DockingCX="426" DockingCY="509" Title="Waveforms\n\n" ID="107" IconID="33261" Options="16" DockingHolder="27" LastHolder="27" MinTrackX="30" MinTrackY="30"/>
+		<Pane-8 Type="0" DockingCX="640" DockingCY="127" Title="Sources\n\n" ID="108" IconID="33415" DockingHolder="32" LastHolder="32" MinTrackX="30" MinTrackY="30"/>
+		<Pane-9 Type="0" DockingCX="640" DockingCY="637" Title="Channels\n\n" ID="109" IconID="32980" DockingHolder="37" LastHolder="37" MinTrackX="30" MinTrackY="30"/>
+		<Pane-10 Type="0" DockingCX="640" DockingCY="637" Title="Channel Parameters\n\n" ID="110" IconID="32981" DockingHolder="34" LastHolder="34" MinTrackX="30" MinTrackY="30"/>
+		<Pane-11 Type="0" DockingCX="640" DockingCY="637" Title="File Summary\n\n" ID="111" IconID="32983" DockingHolder="34" LastHolder="34" MinTrackX="30" MinTrackY="30"/>
+		<Pane-12 Type="0" DockingCX="640" DockingCY="637" Title="Time Segments\n\n" ID="112" IconID="33323" DockingHolder="34" LastHolder="34" MinTrackX="30" MinTrackY="30"/>
+		<Pane-13 Type="0" DockingCX="640" DockingCY="637" Title="Events\n\n" ID="113" IconID="32984" DockingHolder="34" LastHolder="34" MinTrackX="30" MinTrackY="30"/>
+		<Pane-14 Type="0" DockingCX="640" DockingCY="637" Title="Stats\n\n" ID="114" IconID="32985" DockingHolder="34" LastHolder="34" MinTrackX="30" MinTrackY="30"/>
+		<Pane-15 Type="0" DockingCX="640" DockingCY="637" Title="Templates\n\n" ID="115" IconID="32987" DockingHolder="34" LastHolder="34" MinTrackX="30" MinTrackY="30"/>
+		<Pane-16 Type="0" DockingCX="640" DockingCY="637" Title="Scan\n\n" ID="116" IconID="32988" DockingHolder="34" LastHolder="34" MinTrackX="30" MinTrackY="30"/>
+		<Pane-17 Type="0" DockingCX="640" DockingCY="637" Title="Channel Map\n\n" ID="117" IconID="33168" DockingHolder="34" LastHolder="34" MinTrackX="30" MinTrackY="30"/>
+		<Pane-18 Type="0" DockingCX="640" DockingCY="637" Title="Messages\n\n" ID="118" IconID="46063" DockingHolder="34" LastHolder="34" MinTrackX="30" MinTrackY="30"/>
+		<Pane-19 Type="0" DockingCX="1920" DockingCY="254" Title="Timeline\n\n" ID="119" IconID="32876" DockingHolder="36" LastHolder="36" MinTrackX="30" MinTrackY="30"/>
+		<Pane-20 Type="0" DockingCX="600" DockingCY="500" Title="Cross Correlograms\n\n" ID="120" IconID="33094" DockingHolder="34" FloatingHolder="41" LastHolder="34" MinTrackX="30" MinTrackY="30"/>
+		<Pane-21 Type="2" Horiz="1" Panes="1" Pane-1="22"/>
+		<Pane-22 Type="2" DockingCY="944" Panes="2" Pane-1="23" Pane-2="35"/>
+		<Pane-23 Type="2" DockingCX="1894" DockingCY="859" Horiz="1" Panes="4" Pane-1="24" Pane-2="29" Pane-3="30" Pane-4="31"/>
+		<Pane-24 Type="2" DockingCX="594" DockingCY="254" Panes="2" Pane-1="25" Pane-2="28"/>
+		<Pane-25 Type="2" DockingCX="213" DockingCY="764" Horiz="1" Panes="2" Pane-1="26" Pane-2="27"/>
+		<Pane-26 Type="1" DockingCX="213" DockingCY="764" Panes="1" Selected="6" Pane-1="6"/>
+		<Pane-27 Type="1" DockingCX="426" DockingCY="509" Panes="1" Selected="7" Pane-1="7"/>
+		<Pane-28 Type="1" DockingCX="640" DockingCY="254" Panes="1" Selected="1" Pane-1="1"/>
+		<Pane-29 Type="1" DockingCX="663" DockingCY="764" Panes="3" Selected="4" Pane-1="2" Pane-2="4" Pane-3="5"/>
+		<Pane-30 Type="4"/>
+		<Pane-31 Type="2" DockingCX="629" DockingCY="859" Panes="2" Pane-1="32" Pane-2="33"/>
+		<Pane-32 Type="1" DockingCX="640" DockingCY="429" Panes="2" Selected="3" Pane-1="8" Pane-2="3"/>
+		<Pane-33 Type="2" DockingCX="640" DockingCY="426" Horiz="1" Panes="1" Pane-1="34"/>
+		<Pane-34 Type="1" DockingCX="640" DockingCY="637" Panes="10" Selected="20" Pane-1="20" Pane-2="10" Pane-3="11" Pane-4="12" Pane-5="14" Pane-6="13" Pane-7="16" Pane-8="15" Pane-9="17" Pane-10="18"/>
+		<Pane-35 Type="2" DockingCX="1920" DockingCY="81" Horiz="1" Panes="2" Pane-1="36" Pane-2="37"/>
+		<Pane-36 Type="1" DockingCX="1920" DockingCY="81" Panes="1" Selected="19" Pane-1="19"/>
+		<Pane-37 Type="1" DockingCX="640" DockingCY="637" Panes="1" Selected="9" Pane-1="9"/>
+		<Pane-38 Type="5" Direction="1" Panes="0"/>
+		<Pane-39 Type="3" WindowRectTopPos="281" WindowRectBottomPos="781" WindowRectLeftPos="650" WindowRectRightPos="1270" TopContaner="40"/>
+		<Pane-40 Type="2" DockingCX="600" DockingCY="500" Horiz="1" Panes="1" Pane-1="41"/>
+		<Pane-41 Type="1" DockingCX="600" DockingCY="500" Panes="0"/>
+		<Pane-42 Type="3" WindowRectTopPos="444" WindowRectBottomPos="1208" WindowRectLeftPos="815" WindowRectRightPos="1436" TopContaner="43"/>
+		<Pane-43 Type="2" DockingCX="640" DockingCY="764" Horiz="1" Panes="1" Pane-1="44"/>
+		<Pane-44 Type="1" DockingCX="640" DockingCY="764" Panes="0"/>
+		<Pane-45 Type="3" WindowRectTopPos="128" WindowRectBottomPos="892" WindowRectLeftPos="597" WindowRectRightPos="1237" TopContaner="46"/>
+		<Pane-46 Type="2" DockingCX="640" DockingCY="764" Horiz="1" Panes="1" Pane-1="47"/>
+		<Pane-47 Type="1" DockingCX="640" DockingCY="764" Panes="0"/>
+		<Pane-48 Type="3" WindowRectTopPos="104" WindowRectBottomPos="533" WindowRectLeftPos="618" WindowRectRightPos="1247" TopContaner="49"/>
+		<Pane-49 Type="2" DockingCX="640" DockingCY="764" Horiz="1" Panes="1" Pane-1="50"/>
+		<Pane-50 Type="1" DockingCX="640" DockingCY="764" Panes="0"/>
+	</DockingPane>
+	<PlexGUI PlexGUITheme="2" HideTitleBars="1" Tools="3 : (PlexUtil,,PlexUtil.exe,) (NeuroExplorer,,NeuroExplorer.exe,) (Explorer,,explorer.exe,) "/>
+	<Waveforms_33261_107 m_bShowToolbar="1" m_bShowTextBelowIcons="1"/>
+	<Messages_46063_118 ShowDebugLevel="0"/>
+	<WindowPlacement PlexWindowPos_flags="2" PlexWindowPos_showCmd="3" PlexWindowPos_ptMinPosition_x="-1" PlexWindowPos_ptMinPosition_y="-1" PlexWindowPos_ptMaxPosition_x="-1" PlexWindowPos_ptMaxPosition_y="-1" PlexWindowPos_rcNormalPosition_x="545" PlexWindowPos_rcNormalPosition_y="186" PlexWindowPos_rcNormalPosition_x2="1567" PlexWindowPos_rcNormalPosition_y2="914"/>
+</Settings>
