@@ -3,8 +3,9 @@
 if exist('sessList','var') && ~exist('Trials','var')
     Trials = open_merged(sessList);
 end
-
+%%
 if ~exist('probe')
+    Trials = cleanTrialsStruct_v2(Trials);
     probe_preprocess
     curUnit=1;
 end
@@ -16,8 +17,8 @@ yw = 20;
 %% get presaccadic RF
 % params.earliest    = 0;
 % params.latest      = 10;
-params.earliest    = -10;
-params.latest      = 40;
+params.earliest    = 15;
+params.latest      = 50;
 params.windowsize  = 40;
 params.wind_inc    = 1; 
 params.standard_caxis = 0;
@@ -86,23 +87,18 @@ params.ywidth      = yw;
 params.estimator   = 'PTA';
 
 
-exploit_filter = logical(probe.rewardedSac) & ...
+exploit_filter = logical(probe.rewardedSacc) & ...
     sacc_isis>200 & ...
-    RF_sac_diff>50 & ...
+    RF_sacc_diff>50 & ...
     saccmag>5;
 
 
 % exploitRF = plotRF_trajectory(probe(exploit_filter,:),curUnit,params);
 exploitRF = plotRF_trajectory(probe(logical(probe.rewardedSacc),:),curUnit,params);
 % exploitRF = plotRF_trajectory(probe(logical(toTarg),:),curUnit,params);
-
+%%
 % get exploit measurements
-% exploitRF = get_remap_measures(exploitRF, psRF);
-
-
-
-
-
+exploitRF = get_remap_measures(exploitRF, psRF);
 
 
 %% Explore
@@ -124,8 +120,9 @@ exploreRF = plotRF_trajectory(probe(~logical(probe.rewardedSacc),:),curUnit,para
 % exploreRF = plotRF_trajectory(probe(~logical(probe.rewardedSacc) & sacc_isis>150 & RF_sacc_diff>50 & saccmag>5,:),curUnit,params);
 % exploreRF = plotRF_trajectory(probe(~logical(toTarg),:),curUnit,params);
 
+%%
 % get explore measurements
-% exploreRF = get_remap_measures(exploreRF, psRF);
+exploreRF = get_remap_measures(exploreRF, psRF);
 
 
 %% plot remapping measures
