@@ -74,7 +74,7 @@ RF_sacc_diff = abs(dir2RF-dir2fix2);
 
 %% Exploit
 params.earliest    = -60;
-params.latest      = -15;
+params.latest      = -0;
 params.windowsize  = 40;
 params.wind_inc    = 1; 
 params.standard_caxis = 1;
@@ -103,7 +103,7 @@ exploitRF = get_remap_measures(exploitRF, psRF);
 
 %% Explore
 params.earliest    = -60;
-params.latest      = -15;
+params.latest      = -0;
 params.windowsize  = 40;
 params.wind_inc    = 1; 
 params.standard_caxis = 1;
