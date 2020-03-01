@@ -2,8 +2,7 @@
 probe = make_probe_table(Trials);
 
 
-%%
-% now recompute all of these
+%% FILTERS
 % magnitude of saccades
 saccmag = sqrt((probe.y_oneFixAhead-probe.y_curFix).^2 + (probe.x_oneFixAhead-probe.x_curFix).^2);
 % intersaccadic interval 
