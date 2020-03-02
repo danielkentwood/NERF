@@ -1,7 +1,7 @@
 # NERF
 ### Nonlinear Estimation of Receptive Fields
 
-This is a repository for a project where I am attempting to estimate the spatiotemporal evolution of visual receptive fields in macaque prefrontal cortex neurons. I collected this data set with Mark Segraves at Northwestern University. This project is also in collaboration with Konrad Kording, Pavan Ramkumar (who colloborated on this code), Joshua Glaser, Patrick Lawlor, and Pedro Ribeiro.
+This is a repository for a project where I am attempting to estimate the spatiotemporal evolution of visual receptive fields in macaque prefrontal cortex neurons. I collected this data set with Mark Segraves at Northwestern University. This project is also in collaboration with Konrad Kording, Pavan Ramkumar, Joshua Glaser, Patrick Lawlor, and Pedro Ribeiro.
 
 Approach: We train a monkey to find a gabor patch embedded in perlin noise. We track its eye movements. While the monkey searches, we flash salient probes at random within the visual search space. We use the neural activity elicited by these probes to infer the visuospatial preferences (i.e., receptive fields) of the neurons we are recording from in prefrontal cortex. 
 
