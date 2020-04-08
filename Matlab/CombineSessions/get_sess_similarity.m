@@ -2,7 +2,7 @@
 % make sure you are in a depth folder
 
 
-%% get session metadata
+%% get session metadata!
 get_sess_metadata
 
 %% Extract features

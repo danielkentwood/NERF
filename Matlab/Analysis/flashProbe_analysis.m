@@ -3,16 +3,13 @@
 if exist('sessList','var') && ~exist('Trials','var')
     Trials = open_merged(sessList);
 end
-
-
-%% get saccades
-% clean up the data behavioral data
+% get saccades and clean up the data behavioral data
 Trials = saccade_detector(Trials);   
 Trials = cleanTrials(Trials);
 
 
 %% plot all the saccade vectors and fixations
-% plotTargsAndFixations(Trials);
+plotTargsAndFixations(Trials);
 
 
 
@@ -55,8 +52,6 @@ moveRF_preview(Trials,params);
 % PSTH_r_probe = radial_PProbeTH(Trials, 'single');
 PSTH = radial_PProbeTH_v2(Trials);
 
-
-
 %% plot ununed temporal response for probes
 PSTH_tu_probe = temporal_untuned_pProbeTH(Trials);
 
@@ -67,3 +62,6 @@ params.win_size=40;
 params.xwidth=40;
 params.ywidth=30;
 probeRF_preview(Trials,params);
+
+%% run the trajectory analysis
+trajectoryAnalysis
