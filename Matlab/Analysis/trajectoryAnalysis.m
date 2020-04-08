@@ -5,7 +5,8 @@ if exist('sessList','var') && ~exist('Trials','var')
 end
 %%
 if ~exist('probe')
-    Trials = cleanTrialsStruct_v2(Trials);
+    Trials = saccade_detector(Trials);  
+    Trials = cleanTrials(Trials);
     probe_preprocess
     curUnit=1;
 end
