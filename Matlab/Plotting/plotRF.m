@@ -168,7 +168,7 @@ if plotflag
         figure(h.f);
     end
     if ~isempty(axes_Handle)
-        subplot(axes_Handle)
+        subplot('position',axes_Handle)
         imagesc(xvec,yvec,Ig);
         set(gca,'Ydir','normal')
         hold on
@@ -195,10 +195,13 @@ if plotflag
         h.axes = gca;
     end
     
-    colorbar
+    cb = colorbar;
+    ylabel(cb,'Firing Rate (sp/s)')
     
     hold on
     plot([0 0],ylim,'w--')
     plot(xlim,[0 0],'w--')
+    xlabel('Lateral Position (dva)')
+    ylabel('Vertical Position (dva)')
 else h=NaN;
 end

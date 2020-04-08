@@ -108,7 +108,8 @@ for c = 1:numConds
     end
     % Convert timestamps to a spike train vector
     spikeTrains = buildSpikeTrain(sTms,zt,st,et,dt);
-    % smoothing?
+
+ 
     if ~isempty(spikeTrains)
         if smoothflag
             % convolves a spike train with a

@@ -35,7 +35,7 @@ T = length(startTime:endTime);
 % end
 % Use time vector to create a sparse matrix which will act as an empty bin
 % structure to fill up with spikes.
-S = sparse(zeros(numtrials,ceil(T/dt)));
+S = sparse(zeros(1,ceil(T/dt)));
 
 if nospikes
     Sm=full(S);
@@ -56,8 +56,8 @@ else
         end
         
         for j=1:length(spTs)
-            S(tr,ceil((spTs(j))/dt)) = S(tr,ceil(spTs(j)/dt))+1; % We divide by the bin interval because we are filling up bins
+            S(ceil((spTs(j))/dt)) = S(ceil(spTs(j)/dt))+1; % We divide by the bin interval because we are filling up bins
         end
+        Sm(tr,:)=full(S);
     end 
-    Sm=full(S);
 end
