@@ -4,12 +4,14 @@
 %plexonfiles = dir(sprintf('%s/**/spl_d*/*.pl*',processed_search_probe_path));
 
 
-function [all_average_waveform_PC,all_isi_hist,unit_groups,broken_files] = get_features_for_matching(plexonfiles,spike_bins)
+function [all_average_waveform_PC,all_isi_hist,unit_groups,plx_source_file,unit_number,broken_files] = get_features_for_matching(plexonfiles,spike_bins)
 
 
 all_average_waveform_unit = [];
 all_isi_hist = [];
 broken_files = [];
+plx_source_file = [];
+unit_number = [];
 
 unit_groups = [];%stores the same index for all units found under the same folder and depth
 unit_groups_dictionary = containers.Map(); %keeps track of which folders we have seen
@@ -54,12 +56,9 @@ for file_idx = 1:length(plexonfiles)
         
         average_waveform_unit = mean(wave,1);
         all_average_waveform_unit = [all_average_waveform_unit;average_waveform_unit];
-        [coeff,score,latent,tsquared,explained,mu] = pca(all_average_waveform_unit);
         
-        explained_cumsum = cumsum(explained);
-        num_pca_components_to_use = find(explained_cumsum>=99,1);
-        all_average_waveform_PC = score(:,1:num_pca_components_to_use);
-        
+        plx_source_file = [plx_source_file;cur_path_to_plx];
+        unit_number = [unit_number;unit];
         
         if unit_groups_dictionary.isKey(cur_plexon_file.folder)
             unit_groups = [unit_groups;unit_groups_dictionary(cur_plexon_file.folder)];
@@ -73,6 +72,12 @@ for file_idx = 1:length(plexonfiles)
     end
     
 end
+
+
+[coeff,score,latent,tsquared,explained,mu] = pca(all_average_waveform_unit);
+explained_cumsum = cumsum(explained);
+num_pca_components_to_use = find(explained_cumsum>=99,1);
+all_average_waveform_PC = score(:,1:num_pca_components_to_use);
 
 
 disp("done")
