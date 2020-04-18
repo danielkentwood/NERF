@@ -57,9 +57,7 @@ for unit = unitvec % first unit is unsorted spikes
     
     tic
     for trial = 1:length(Trials)
-        
-        
-        
+
         codes = [Trials(trial).Events(:).Code];
         times = [Trials(trial).Events.Time];
         p_times = Trials(trial).probeXY_time(:,3);
@@ -73,11 +71,7 @@ for unit = unitvec % first unit is unsorted spikes
         for cp = 1:length(p_times)
             fix_diffs = p_times(cp)-fix_onsets;
             sacc_diffs = p_times(cp)-sacc_onsets;
-            
-            
-            
-            
-            
+
             % identify which saccade we're locking to
             keepflag=0;
             p_x=[];p_y=[];
@@ -87,11 +81,7 @@ for unit = unitvec % first unit is unsorted spikes
                 lock_idx = find(fix_diffs>=p_win(1) & fix_diffs<=p_win(2));
                 lock_idx = min(lock_idx);
             end
-            
-            
-            
-            
-            
+
             % lock to the fixation or the saccade
             if ~isempty(lock_idx)
                 keepflag=1;  
@@ -179,10 +169,6 @@ for unit = unitvec % first unit is unsorted spikes
                 data_cells{pctr}=vis_temp{1}';
             end
         end
-        
-        
-        
-        
     end
     toc
     

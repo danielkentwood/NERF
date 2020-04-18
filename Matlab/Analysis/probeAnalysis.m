@@ -109,9 +109,9 @@ toTarg = dist2targ<5;
 toDist = dist2dist<5;
 
 params=[];
-params.earliest    = -20;
-params.latest      = -20;
-params.windowsize  = 25;
+params.earliest    = -90;
+params.latest      = -90;
+params.windowsize  = 90;
 params.wind_inc    = 10; 
 params.timeLock    = 'sac1start';
 params.spaceLock   = 'fix2';
@@ -119,26 +119,26 @@ params.plotflag    = 1;
 params.estimator   = 'PTA';
 
 % outFFdist = probes_RF_estimate(probe(logical(toDist),:),curUnit,params);
-outFFtarg = probes_RF_estimate(probe(logical(probe.rewardedSacc) & sacc_isis>200 & RF_sacc_diff>50 & saccmag>4,:),curUnit,params);
+outFFtarg = probes_RF_estimate(probe(logical(probe.rewardedSacc),:),curUnit,params);
 % outFFnodist = probes_RF_estimate(probe(~logical(toDist),:),curUnit,params);
-outFFnotarg = probes_RF_estimate(probe(~logical(probe.rewardedSacc) & sacc_isis>200 & RF_sacc_diff>50 & saccmag>4,:),curUnit,params);
-% outFFnotargnodist = probes_RF_estimate(probe(~logical(toDist | probe.rewardedSacc),:),curUnit,params);
+% outFFnotarg = probes_RF_estimate(probe(~logical(probe.rewardedSacc) & sacc_isis>200 & RF_sacc_diff>50 & saccmag>4,:),curUnit,params);
+outFFnotargnodist = probes_RF_estimate(probe(~logical(toDist | probe.rewardedSacc),:),curUnit,params);
 
 
 cent = RF.outCF.RF.Centroid;
 % dist = outFFdist.RF.Centroid;
 targ = outFFtarg.RF.Centroid;
 % nodist = outFFnodist.RF.Centroid;
-notarg = outFFnotarg.RF.Centroid;
-% notargnodist = outFFnotargnodist.RF.Centroid;
+% notarg = outFFnotarg.RF.Centroid;
+notargnodist = outFFnotargnodist.RF.Centroid;
 
 figure
 % quiver(cent(1),-cent(2),dist(1)-cent(1),-(dist(2)-cent(2)),'Color',[0 0 0]);
 hold on
 quiver(cent(1),-cent(2),targ(1)-cent(1),-(targ(2)-cent(2)),'Color',[1 0 0]);
 % quiver(cent(1),-cent(2),nodist(1)-cent(1),-(nodist(2)-cent(2)),'Color',[0 1 0]);
-quiver(cent(1),-cent(2),notarg(1)-cent(1),-(notarg(2)-cent(2)),'Color',[1 0 1]);
-% quiver(cent(1),-cent(2),notargnodist(1)-cent(1),-(notargnodist(2)-cent(2)),'Color',[0 0 1]);
+% quiver(cent(1),-cent(2),notarg(1)-cent(1),-(notarg(2)-cent(2)),'Color',[1 0 1]);
+quiver(cent(1),-cent(2),notargnodist(1)-cent(1),-(notargnodist(2)-cent(2)),'Color',[0 0 1]);
 % lh = legend('Distractor','Target','NotDistractor','NotTarg','NotDistOrTarg','Location','Best');
 lh = legend('Target','NotTarg','Location','Best');
 axis([-30 30 -20 20])

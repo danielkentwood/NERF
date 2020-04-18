@@ -1,5 +1,5 @@
 % plot_movement_tuning
-function h = plot_movement_tuning(Trials, meta)
+function h = movement_RF(Trials, meta)
 
 
 %% get saccade-locked tuning (radial)
@@ -35,8 +35,8 @@ params.win_size=win_size;
 params.xwidth=48;
 params.ywidth=36;
 
-[x, y, fr, plot_params] = get_saccade_locked_activity(Trials, params);
-xwidth      = 48;
+[x, y, fr] = get_saccade_locked_activity(Trials, params);
+plot_params.xwidth      = 48;
 plot_params.ywidth      = 36;
 plot_params.filtsize    = [10 10];
 plot_params.filtsigma   = 2;

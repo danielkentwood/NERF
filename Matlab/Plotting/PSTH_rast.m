@@ -114,9 +114,15 @@ for c = 1:numConds
             % convolves a spike train with a
             % gaussian kernel
             sm_gauss = gauss_spTrConvolve( spikeTrains, dt, gauss_sigma );
-            sm_mu = mean(sm_gauss).*1000/dt;
+            if size(sm_gauss,1)>1
+                sm_mu = mean(sm_gauss).*1000/dt;
+            else sm_mu = sm_gauss;
+            end
         else
-            sm_mu = mean(spikeTrains).*1000/dt;
+            if size(spikeTrains,1)>1
+                sm_mu = mean(spikeTrains).*1000/dt;
+            else sm_mu = spikeTrains;
+            end
         end
         
         
@@ -217,10 +223,12 @@ if plotflag
     ylabel('Spikes/S')
     xlabel('Time (ms)')
     if ~isempty(names)
-        lhPSTH = legend([h.l],names,'location','best');
+        ax_size = get(gca,'position');
+        lhPSTH = legend([h.l],names,'location','southeastoutside');
         set(lhPSTH,'box','off','fontsize',10)
+        set(gca,'position',ax_size)
     end
-    
+     
     % finalize the raster plot
     totalRastRows=sum(rastRows);
     subplot(sp1);
