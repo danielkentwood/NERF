@@ -298,13 +298,13 @@ def matching_alg_greedy(model, data, labels, threshold=10):
                 
                 if model(cur_data,data[compare_this_unit_idx]).item() > threshold:        #If the current datapoint looks like an item in the category, assign it to the category
                     matched_units.append(data_idx)
-                    matched_labels[matched_units_idx].append(labels[data_idx])      
+                    matched_labels[matched_units_idx].append(labels[data_idx,0])      
                     matched = True
                     break
         
         if matched == False: #If the units never look like an item in the category, create a new category.
             matched_indeces.append([data_idx])
-            matched_labels.append([labels[data_idx]])
+            matched_labels.append([labels[data_idx,0]])
 
     
     return matched_indeces, matched_labels

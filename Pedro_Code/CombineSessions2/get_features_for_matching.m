@@ -31,18 +31,20 @@ for file_idx = 1:length(plexonfiles)
     cur_units = [];
     for i = 1:length(cur_mat_files)
         tmp = extractAfter(cur_mat_files(i).name,'_u');
-        %TODO: MAKE SURE THIS IS CORRECT!!!!!!!!!!!!!!!!!
-        %TODO: MAKE SURE THIS IS CORRECT!!!!!!!!!!!!!!!!!
-        %TODO: MAKE SURE THIS IS CORRECT!!!!!!!!!!!!!!!!!
-        cur_units =[cur_units ,str2num(tmp(1:2))-1]; %TODO: MAKE SURE THIS IS CORRECT!!!!!!!!!!!!!!!!!
-        %TODO: MAKE SURE THIS IS CORRECT!!!!!!!!!!!!!!!!!
-        %TODO: MAKE SURE THIS IS CORRECT!!!!!!!!!!!!!!!!!
-        %TODO: MAKE SURE THIS IS CORRECT!!!!!!!!!!!!!!!!!
+
+        cur_units =[cur_units ,str2num(tmp(1:2))]; 
+
     end
 
     %extract_features
     for unit = cur_units
-        [n, npw, ts, wave] = plx_waves_v(cur_path_to_plx, cur_channel, unit);
+        %TODO: MAKE SURE THIS IS CORRECT!!!!!!!!!!!!!!!!!
+        %TODO: MAKE SURE THIS IS CORRECT!!!!!!!!!!!!!!!!!
+        %TODO: MAKE SURE THIS IS CORRECT!!!!!!!!!!!!!!!!!
+        [n, npw, ts, wave] = plx_waves_v(cur_path_to_plx, cur_channel, unit-1);
+        %TODO: MAKE SURE THIS IS CORRECT!!!!!!!!!!!!!!!!!
+        %TODO: MAKE SURE THIS IS CORRECT!!!!!!!!!!!!!!!!!
+        %TODO: MAKE SURE THIS IS CORRECT!!!!!!!!!!!!!!!!!
 
         if wave == -1
             broken_files = [broken_files;cur_path_to_plx];
