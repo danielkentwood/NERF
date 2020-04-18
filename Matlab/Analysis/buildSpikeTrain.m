@@ -19,6 +19,7 @@ function Sm = buildSpikeTrain(spikeTimes,zeroTime,startTime,endTime,dt)
 nospikes=0;
 if isempty(spikeTimes)
     nospikes = 1;
+    numtrials =1;
 elseif iscell(spikeTimes)
     numtrials=length(spikeTimes);
 elseif isvector(spikeTimes)

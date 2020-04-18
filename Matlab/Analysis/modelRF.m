@@ -1,0 +1,186 @@
+% [out, h] = modelRF(x,y,fr,model,varargin)
+%
+% Inputs    x: vector of x-values.
+%           y: vector of y-values.
+%           fr: vector of instantaneous or average firing rates
+%           model: parameters to construct a grid of gaussian basis
+%           functions
+%                 - N: N^2 is the number of basis functions in the grid
+%                 - P: the
+%           varargin: a struct with optional parameters
+%                 - xwidth: the width of the plot window (default is to
+%                 include all data points)
+%                 - ywidth: the height of the plot window (default is to
+%                 include all data points)
+%                 - filtsize: size of the gaussian filter for smoothing
+%                 (default: [3 3])
+%                 - filtsigma: standard deviation of the gaussian filter
+%                 (default: 0.5)
+%                 - plotflag: plot or not (default is yes)
+%
+% Output    out: a struct with the image matrix, x, and y
+%           r2: handle to the axes and figure (if plotting is turned on).
+%
+% DKW, Jan 2020
+
+
+function [out, h] = modelRF(x,y,fr,model,varargin)
+
+% varargin default values (varargin is a struct with the following possible fields)
+xwidth      = max(abs(x));
+ywidth      = max(abs(y));
+filtsize    = [10 10];
+filtsigma   = 2;
+plotflag    = 1;
+fig_Handle   = [];
+axes_Handle  = [];
+
+Pfields = {'xwidth','ywidth','filtsize','filtsigma','plotflag','fig_Handle','axes_Handle'};
+for i = 1:length(Pfields) % if a params structure was provided as an input, change the requested fields
+    if ~isempty(varargin)&&isfield(varargin{1}, Pfields{i}), eval(sprintf('%s = varargin{1}.(Pfields{%d});', Pfields{i}, i)); end
+end
+if ~isempty(varargin)  % if there is a params input
+    fnames = fieldnames(varargin{1}); % cycle through field names and make sure all are recognized
+    for i = 1:length(fnames)
+        recognized = max(strcmp(fnames{i},Pfields));
+        if recognized == 0, fprintf('fieldname %s not recognized\n',fnames{i}); end
+    end
+end
+
+
+%% build the image matrix
+% make sure the data fit within the bounds
+bound = y>-ywidth & y<ywidth & x>-xwidth & x<xwidth;
+y=y(bound);
+x=x(bound);
+fr=fr(bound);
+
+% create x and y vectors
+xvec = -xwidth:xwidth;
+yvec = -ywidth:ywidth;
+act_map=NaN(length(yvec),length(xvec));
+% get x,y position of each pixel on the grid
+[xg,yg]=meshgrid(xvec,yvec);
+
+% smoothing
+% use k-nearest neighbors smoothing algorithm
+% create matrix of saccade/firing rates
+rallx=ceil(x);
+rally=ceil(y);
+knn=20; % number of neighbors that will influence each other
+decay=.05; % influence of neighbors decays over distance
+peaks = rf_smooth([rallx(:) rally(:)],[xg(:) yg(:)],fr,decay,knn);
+Ig=reshape(peaks,size(act_map));
+Gs = fspecial('gaussian',filtsize,filtsigma);
+Ig = imfilter(Ig,Gs,'same');
+
+
+
+%% model
+% clear the mex file
+clear mex
+% set params
+min_lambda = 'lambda_lse';
+N          = 6; % N^2 is the number of gaussians that fit into the workspace
+Mfields = {'N','min_lambda'};
+for i = 1:length(Mfields) % if a params structure was provided as an input, change the requested fields
+    if ~isempty(model)&&isfield(model, Mfields{i}), eval(sprintf('%s = model.(Mfields{%d});', Mfields{i}, i)); end
+end
+if ~isempty(model)  % if there is a model input
+    fnames = fieldnames(model); % cycle through field names and make sure all are recognized
+    for i = 1:length(fnames)
+        recognized = max(strcmp(fnames{i},Mfields));
+        if recognized == 0, fprintf('fieldname %s not recognized\n',fnames{i}); end
+    end
+end
+
+% initialize the gaussian basis functions
+P = [size(act_map,2) size(act_map,1)]; % P is the dimensions of the workspace
+G = compute_gaussian_masks(P, N, 'xy');
+% create design matrix
+for ind = 1:length(x)
+    curx = x(ind);
+    cury = y(ind);
+    xind = find(xvec==curx);
+    yind = find(yvec==cury);
+    mx = max(1,xind-3):min(P(1),xind+3);
+    my = max(1,yind-3):min(P(2),yind+3);
+    for wv = 1:size(G,3)
+        basis_w(ind,wv) = mean(mean(G(my,mx,wv)));
+    end
+end
+
+% cross-validated GLM
+options = glmnetSet;
+cv_fit = cvglmnet(basis_w, fr', 'gaussian', options, [], 20);
+
+% get value of lambda that gives minimum mean cross validation error
+switch min_lambda
+    case 'lambda_min'
+        lambda = cv_fit.lambda_min;
+    case 'lambda_lse'
+        lambda = cv_fit.lambda_1se;
+end
+
+% get model prediction of RF and corresponding r-squared
+Ig = predict_rf(cv_fit, G, lambda);
+r2 = get_r2(cv_fit, fr, lambda);
+% create output
+out.image = Ig;
+out.x = xvec;
+out.y = yvec;
+out.r2 = r2;
+
+
+if plotflag
+    if isempty(fig_Handle)
+        h.f = figure();
+    else
+        h.f = fig_Handle;
+        figure(h.f);
+    end
+    if ~isempty(axes_Handle)
+        subplot('position',axes_Handle)
+        imagesc(xvec,yvec,Ig);
+        set(gca,'Ydir','normal')
+        hold on        
+        h.im = axes_Handle;
+        h.axes = gca;
+    else
+        h.im = imagesc(xvec,yvec,Ig);
+        set(gca,'Ydir','normal')
+        h.axes = gca;
+    end
+
+    cb = colorbar;
+    ylabel(cb,'Predicted Firing Rate (sp/s)')
+    
+    hold on
+    title({['R^2 = ' num2str(r2)],['lambda = ' num2str(lambda)]})
+    plot([0 0],ylim,'w--')
+    plot(xlim,[0 0],'w--')
+    xlabel('Lateral Position (dva)')
+    ylabel('Vertical Position (dva)')
+else h=NaN;
+end
+
+
+%% Subfunctions
+
+    function r2 = get_r2(cv_fit, fr, lambda)
+        [~, mnid]=min(abs(cv_fit.lambda-lambda));
+        ss_tot = sum((fr-mean(fr)).^2);
+        mse_total = ss_tot/length(fr);
+        mse = cv_fit.cvm(mnid);
+        r2 = (1-mse./mse_total);
+    end
+
+    function Ig = predict_rf(cv_fit, G, lambda)
+        fit = cv_fit.glmnet_fit;
+        [~, mnid]=min(abs(cv_fit.lambda-lambda));
+        beta = fit.beta(:,mnid);
+        intercept = fit.a0(mnid);
+        tmpf = repmat(shiftdim(beta', -1), [size(G,1), size(G,2), 1]); % Assign each basis function its weight
+        Ig = intercept+ sum(G.*tmpf, 3); % Here, we add the intercept to the activity map.
+    end
+end

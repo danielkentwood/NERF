@@ -1,4 +1,4 @@
-function PSTH = radial_PProbeTH_simple_probe(Trials, plot_type)
+function PSTH = plot_radial_PProbeTH(Trials, plot_type)
 
 if ispc
     opengl software % use openGL software rather than hardware (since you are using alpha transparency and this isn't compatible with openGL hardware currently)
@@ -19,32 +19,26 @@ electrode = find(~cellfun(@isempty,{Trials(1).Electrodes.Units}));
 unit = 1;
 plotflag=1;
 
-
 % temporal parameters
 dt = 5;
 pad = 50;
-time_before = 200+pad;
-time_after = 300+pad;
+time_before = 100+pad;
+time_after = 200+pad;
 sacc_cutoff = -150; % This will split the plotting into two groups, pre-remapping and
 % post-remapping.
 
 trialvec = 1:length(Trials);
 for ps = 1:2
     ind = 1;
-    
-    allnextX = [];
-    allnextY = [];
-    
-    % cycle through all trials
     for trial = 1:length(trialvec)
         curtrial=trialvec(trial);
         
-        % get info about target
+        codes = [Trials(curtrial).Events(:).Code];
+        times = [Trials(curtrial).Events.Time];
+        
         tx = Trials(curtrial).Target.x;
         ty = Trials(curtrial).Target.y;
-        t_time = Trials(curtrial).Target.t_onset;
         
-        % get some info about probes
         p_times = Trials(curtrial).probeXY_time(:,3);
         
         % make sure the probe happened within a set window after
@@ -56,32 +50,26 @@ for ps = 1:2
         nextX=zeros(1,length(p_times));
         nextY=zeros(1,length(p_times));
         
-        
-        
-        
-        % Here, we go through each probe in a given trial, and decide
-        % it belongs in the original or remapped PSTH
         for cp = 1:length(p_times)
+            % find the fixation after which it happened
+            fix_diffs = p_times(cp)-fix_onsets;
+            sacc_diffs = p_times(cp)-sacc_onsets;
+            lastfixIDX = find(fix_diffs>0, 1, 'last' );
+            if isempty(lastfixIDX)
+                lastfixIDX=1;
+            end
+            
+            % did probe start during the saccade?
+            pre_sacc = sacc_diffs(lastfixIDX);
+            
             % 2 = remapped PSTH (i.e., probes between the cutoff and the movement onset)
             if ps==2
-                % find the fixation after which it happened
-                fix_diffs = p_times(cp)-fix_onsets;
-                sacc_diffs = p_times(cp)-sacc_onsets;
-                lastfixIDX = find(fix_diffs>0, 1, 'last' );
-                if isempty(lastfixIDX)
-                    lastfixIDX=1;
-                end
-                % did probe start during the saccade?
-                pre_sacc = sacc_diffs(lastfixIDX);
-                % remove probes that aren't between the saccade cutoff requirement and
-                % the actual saccade
                 if pre_sacc>0 || pre_sacc<sacc_cutoff
                     bad_probes = [bad_probes cp];
                     continue
                 end
-            else %1 = original PSTH (i.e., probes during fixation, prior to
-                % appearance of target
-                if p_times(cp)>t_time
+            else %1 = original PSTH (i.e., probes between fixation onset and the cutoff)
+                if pre_sacc>0 || pre_sacc>sacc_cutoff
                     bad_probes = [bad_probes cp];
                     continue
                 end
@@ -90,27 +78,20 @@ for ps = 1:2
             nextX(cp)=Trials(curtrial).Saccades.meanX_next_fix;
             nextY(cp)=Trials(curtrial).Saccades.meanY_next_fix;
             
-            if ps==2 && sqrt(nextX(cp)^2 + nextY(cp)^2)<5
-                bad_probes = [bad_probes cp];
-            end
         end
-
+        
         p_times(bad_probes)=[];
         nextX(bad_probes)=[];
         nextY(bad_probes)=[];
         
-        if ps==2
-            allnextX = [allnextX nextX];
-    allnextY = [allnextY nextY];
-        end
-        
         for e = 1:length(p_times)
+            
             % get eye position at event time
-            if ps % original PSTH, use current eye position
+            if ps
                 xy_idx = find(Trials(curtrial).Signals(1).Time==p_times(e));
                 curx = Trials(curtrial).Signals(1).Signal(xy_idx);
                 cury = Trials(curtrial).Signals(2).Signal(xy_idx);
-            else % remapped PSTH, use XY of next fixation
+            else
                 curx = nextX(e);
                 cury = nextY(e);
             end
@@ -134,20 +115,6 @@ for ps = 1:2
         end
     end
     
-    % keep track of where the nextXY fixations are, just to make sure
-    % not too many of them are at center fixation (although some of them will
-    % likely be there because the monkey looks right back at center
-    % after performing the task)
-    if ps==2
-        figure(150)
-        hold all
-        plot(nextX,nextY,'ko')
-        title('Saccade endpoints')
-%         plot(xlim,[0 0],'k-')
-%         plot([0 0],ylim,'k-')
-        hold off
-    end
-    
     
     % bin by angle
     numbins=8;
@@ -165,7 +132,6 @@ for ps = 1:2
     other_params.useSEs=1;
     other_params.smoothflag=1;
     other_params.gauss_sigma = 10;
-    other_params.legend_flag=0;
     if ps==1
         other_params.figTitle='Original PSTH';
     else
@@ -178,13 +144,13 @@ for ps = 1:2
     end
     
     
-    fh(unit)=figure(unit+100);
+    fh(unit)=figure(unit+101);
     switch plot_type
         case 'single'
             % single plot
             set(fh(unit),'position',[495   219   810   764])
             other_params.figHand=fh(unit);
-            other_params.plotLoc = [0.05+.5*(ps-1) 0 .43 1];
+            other_params.plotLoc = [0.05+.5*(ps-1) 0 .41 1];
             [h_psth(tb), PSTH(tb).bin] = PSTH_rast(all_spikes2,time_params,other_params);
         case 'subplots'
             % create subplots

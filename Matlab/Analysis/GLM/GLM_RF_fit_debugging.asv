@@ -1,15 +1,14 @@
 % debugging the GLM fitting
-clear
 
 
 % initialize the gaussian masks
 N=6; % N^2 is the number of gaussians that fit into the workspace
-P=[48 36]; % P is the dimensions of the workspace
+P=60; % P is the length of a side of the square workspace
 G = compute_gaussian_masks(P, N, 'xy');
 
 % here I'm choosing one of the masks as the "RF" I want to fit, and I'm
 % adding a bit of noise
-tst=G(:,:,8).*(rand(P)'.*.5+1);
+tst=G(:,:,8).*(rand(P).*.5+1);
 % now add noise to the rest of the image
 tst = tst+rand(size(tst)).*.5+1;
 % show our constructed RF
@@ -20,23 +19,23 @@ imagesc(tst)
 num_trials = 100; % num trials (i.e., probes)
 for q = 1:num_trials
     % randomly select a "probe" location
-    cdx = randi(P(1)*P(2),1);
-    [cdi,cdj]=ind2sub(size(tst),cdx);
+    cdx = randi(P*P,1);
+    [cdi,cdj]=ind2sub([P P],cdx);
     % get a "probe"-sized square around that location
-    cj = max(1,(cdj-3)):min(P(1),(cdj+3)); 
-    ci = max(1,(cdi-3)):min(P(2),(cdi+3)); 
+    cj = max(1,(cdj-3)):min(P,(cdj+3)); 
+    ci = max(1,(cdi-3)):min(P,(cdi+3)); 
         
     for wv = 1:size(G,3)
         % for each basis function, take the mean of that probe location
         fixW(q,wv) = mean(mean(G(ci,cj,wv)));
+        % take the firing rate from the simulated RF map
     end
-    % take the firing rate from the simulated RF map
     fr(q)=mean(mean(tst(ci,cj)));
 end
 
 %% RUN GLMNET
 options = glmnetSet;
-options.nlambda = 5;
+options.nlambda = 10;
 fit = glmnet(fixW,fr','gaussian',options);
 B = fit.beta;
 intercept = fit.a0;

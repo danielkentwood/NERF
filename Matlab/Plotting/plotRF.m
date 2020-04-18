@@ -58,21 +58,18 @@ act_map=NaN(length(yvec),length(xvec));
 
 
 %% smoothing
+% create matrix of saccade/firing rates
+rallx=ceil(x);
+rally=ceil(y);
+% get x,y position of each pixel on the grid
+[xg,yg]=meshgrid(xvec,yvec);
+knn=20; % number of neighbors that will influence each other
+decay=.05; % influence of neighbors decays over distance
+peaks = rf_smooth([rallx(:) rally(:)],[xg(:) yg(:)],fr,decay,knn);
+Ig=reshape(peaks,size(act_map));
 
-if 1 % use k-nearest neighbors smoothing algorithm
-    % create matrix of saccade/firing rates
-    rallx=ceil(x);
-    rally=ceil(y);
-    % get x,y position of each pixel on the grid
-    [xg,yg]=meshgrid(xvec,yvec);
-    knn=20; % number of neighbors that will influence each other
-    decay=.05; % influence of neighbors decays over distance
-    peaks = rf_smooth([rallx(:) rally(:)],[xg(:) yg(:)],fr,decay,knn);
-    Ig=reshape(peaks,size(act_map));
-    
-    G = fspecial('gaussian',filtsize,filtsigma);
-    Ig = imfilter(Ig,G,'same');
-end
+G = fspecial('gaussian',filtsize,filtsigma);
+Ig = imfilter(Ig,G,'same');
 
 
 

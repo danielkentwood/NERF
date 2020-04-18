@@ -1,4 +1,4 @@
-function [out, h] =moveRF_preview(Trials, varargin)
+function [rallx, rally, firing_rate] = get_saccade_locked_activity(Trials, varargin)
 
 if ispc
     opengl software % use openGL software rather than hardware (since you are using alpha transparency and this isn't compatible with openGL hardware currently)
@@ -8,14 +8,8 @@ end
 dt          = 10;
 x_at_peak   = 0;
 win_size    = 40;
-xwidth      = 48;
-ywidth      = 36;
-filtsize    = [10 10];
-filtsigma   = 2;
-fig_Handle  = [];
-axes_Handle = [];
 
-Pfields = {'dt','x_at_peak','win_size','xwidth','ywidth','filtsize','filtsigma','fig_Handle','axes_Handle'};
+Pfields = {'dt','x_at_peak','win_size','xwidth','ywidth','filtsize','filtsigma'};
 for i = 1:length(Pfields) % if a params structure was provided as an input, change the requested fields
     if ~isempty(varargin)&&isfield(varargin{1}, Pfields{i}), eval(sprintf('%s = varargin{1}.(Pfields{%d});', Pfields{i}, i)); end
 end
@@ -58,14 +52,6 @@ for trial = 1:length(trialvec)
     end
 end
 
-plot_params.xwidth      = xwidth;
-plot_params.ywidth      = ywidth;
-plot_params.filtsize    = filtsize;
-plot_params.filtsigma   = filtsigma;
-plot_params.fig_Handle  = fig_Handle;
-plot_params.axes_Handle = axes_Handle;
 
-[out,h] = plotRF(rallx, rally, firing_rate, plot_params);
-% [out,h] = modelRF(rallx, rally, firing_rate, plot_params);
 
 
