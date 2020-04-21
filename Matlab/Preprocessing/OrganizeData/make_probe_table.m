@@ -1,4 +1,4 @@
-function probe = make_probe_table(Trials)
+function [Trials,probe] = make_probe_table(Trials)
 
 % Check if preprocessing has already been done on this
 pre_check = any(~cellfun(@isempty,{Trials.Saccades}));

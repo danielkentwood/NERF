@@ -116,9 +116,9 @@ params.xwidth      = xw;
 params.ywidth      = yw;
 params.estimator   = 'PTA';
 
-% exploreRF = plotRF_trajectory(probe(~logical(probe.rewardedSacc) & sacc_isis>150 & filters.saccmag>5,:),curUnit,params);
+% exploreRF = plotRF_trajectory(probe(~logical(probe.rewardedSacc) & sacc_isis>150 & saccmag>5,:),curUnit,params);
 exploreRF = plotRF_trajectory(probe(~logical(probe.rewardedSacc),:),curUnit,params);
-% exploreRF = plotRF_trajectory(probe(~logical(probe.rewardedSacc) & sacc_isis>150 & RF_sacc_diff>50 & filters.saccmag>5,:),curUnit,params);
+% exploreRF = plotRF_trajectory(probe(~logical(probe.rewardedSacc) & sacc_isis>150 & RF_sacc_diff>50 & saccmag>5,:),curUnit,params);
 % exploreRF = plotRF_trajectory(probe(~logical(toTarg),:),curUnit,params);
 
 %%

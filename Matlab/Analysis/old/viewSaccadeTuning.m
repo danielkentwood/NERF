@@ -34,7 +34,7 @@ end
 
 
 
-% inferTuning Params
+% plotRF Params
 params.xwidth=50;
 params.ywidth=50;
 params.filtsize=[20 20];
@@ -73,7 +73,7 @@ end
 
 for tr=1:length(trode)
     for u=2:length(trode(tr).fr)
-        inferTuning(x,y,trode(tr).fr{u},params);
+        plotRF(x,y,trode(tr).fr{u},params);
     end
 end
                 

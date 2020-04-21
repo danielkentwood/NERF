@@ -6,6 +6,7 @@ function h = movement_RF(Trials, meta)
 % set parameters
 r_mov_par.figHand = figure();
 r_mov_par.plotLoc = [0.015 0 .43 1];
+r_mov_par.figLoc  = [100 -258 1365 769];
 r_mov_par.errBars = 0;
 % create the radial perisaccadic time histogram with raster
 PSTH_r_mov = radial_PSacTH(Trials, r_mov_par);

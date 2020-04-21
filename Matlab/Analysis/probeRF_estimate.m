@@ -46,7 +46,7 @@ wind_inc_f=50; % (time between windows) default: 50
 start_times_f=earliest_f:wind_inc_f:latest_f;
 end_times_f=start_times_f+windowsize_f;
 
-% set parameters for spatial smoothing during inferTuning.m
+% set parameters for spatial smoothing during plotRF.m
 params.xwidth=30;
 params.ywidth=20;
 params.filtsize=[20 20];
@@ -63,7 +63,7 @@ for i=1:length(start_times_f)
     params.fig_Handle=fa;
     params.axes_Handle=subplot(1,length(start_times_f),i);
     params.plotflag=0;
-    out.f(i)=inferTuning(fixX,fixY,fr_f,params);
+    out.f(i)=plotRF(fixX,fixY,fr_f,params);
     outimage_f(:,:,i)=out.f(i).image;
 end
 % aligned to saccade
@@ -77,7 +77,7 @@ for i=1:length(start_times_s)
     params.fig_Handle=fb;
     params.axes_Handle=subplot(1,length(start_times_s),i);
     params.plotflag=0;
-    out.s(i)=inferTuning(endX,endY,fr_s,params);
+    out.s(i)=plotRF(endX,endY,fr_s,params);
     outimage_s(:,:,i)=out.s(i).image;
 end
 

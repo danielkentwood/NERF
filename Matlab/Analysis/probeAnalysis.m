@@ -1,7 +1,7 @@
 % probeAnalysis
 
 if ~exist('probe')
-    probe_preprocess
+    [Trials,probe,filters]=probe_preprocess(Trials);
     curUnit=1;
 end
 
@@ -13,10 +13,10 @@ end
 
 figure
 bins = .5:.02:2;
-[n1,x1] = hist(relVel(relVel<2 & logical(probe.rewardedSacc)),bins);
-[n2,x2] = hist(relVel(relVel<2 & ~logical(probe.rewardedSacc)),bins);
-n1n = n1/length(find(relVel<2 & logical(probe.rewardedSacc)));
-n2n = n2/length(find(relVel<2 & ~logical(probe.rewardedSacc)));
+[n1,x1] = hist(filters.relVel(filters.relVel<2 & logical(probe.rewardedSacc)),bins);
+[n2,x2] = hist(filters.relVel(filters.relVel<2 & ~logical(probe.rewardedSacc)),bins);
+n1n = n1/length(find(filters.relVel<2 & logical(probe.rewardedSacc)));
+n2n = n2/length(find(filters.relVel<2 & ~logical(probe.rewardedSacc)));
 h2 = bar(x2,n2n);
 hold on
 h1 = bar(x1,n1n);
@@ -29,10 +29,10 @@ set(lh,'box','off')
 
 figure
 bins = 0:20:1600;
-[n1,x1] = hist(saccisi(logical(probe.rewardedSacc)),bins);
-[n2,x2] = hist(saccisi(~logical(probe.rewardedSacc)),bins);
-n1n = n1/length(saccisi(logical(probe.rewardedSacc)));
-n2n = n2/length(saccisi(~logical(probe.rewardedSacc)));
+[n1,x1] = hist(filters.saccisi(logical(probe.rewardedSacc)),bins);
+[n2,x2] = hist(filters.saccisi(~logical(probe.rewardedSacc)),bins);
+n1n = n1/length(filters.saccisi(logical(probe.rewardedSacc)));
+n2n = n2/length(filters.saccisi(~logical(probe.rewardedSacc)));
 h2 = bar(x2,n2n);
 hold on
 h1 = bar(x1,n1n);
@@ -44,10 +44,10 @@ set(lh,'box','off')
 
 figure
 bins = 0:.5:50;
-[n1,x1] = hist(saccmag(logical(probe.rewardedSacc)),bins);
-[n2,x2] = hist(saccmag(~logical(probe.rewardedSacc)),bins);
-n1n = n1/length(saccmag(logical(probe.rewardedSacc)));
-n2n = n2/length(saccmag(~logical(probe.rewardedSacc)));
+[n1,x1] = hist(filters.saccmag(logical(probe.rewardedSacc)),bins);
+[n2,x2] = hist(filters.saccmag(~logical(probe.rewardedSacc)),bins);
+n1n = n1/length(filters.saccmag(logical(probe.rewardedSacc)));
+n2n = n2/length(filters.saccmag(~logical(probe.rewardedSacc)));
 h2 = bar(x2,n2n);
 hold on
 h1 = bar(x1,n1n);
@@ -60,10 +60,10 @@ set(lh,'box','off')
 
 figure
 bins = 0:2:360;
-[n1,x1] = hist(saccdir(logical(probe.rewardedSacc)),bins);
-[n2,x2] = hist(saccdir(~logical(probe.rewardedSacc)),bins);
-n1n = n1/length(saccdir(logical(probe.rewardedSacc)));
-n2n = n2/length(saccdir(~logical(probe.rewardedSacc)));
+[n1,x1] = hist(filters.saccdir(logical(probe.rewardedSacc)),bins);
+[n2,x2] = hist(filters.saccdir(~logical(probe.rewardedSacc)),bins);
+n1n = n1/length(filters.saccdir(logical(probe.rewardedSacc)));
+n2n = n2/length(filters.saccdir(~logical(probe.rewardedSacc)));
 h2 = bar(x2,n2n);
 hold on
 h1 = bar(x1,n1n);
@@ -262,7 +262,7 @@ RF.outFFnotargnodist = probes_RF_estimate(probe(~logical(toDist | probe.rewarded
 % 
 % %% try out ALD 
 % % you need to switch to ALD estimation under the "smoothing" section of 
-% % inferTuning.m
+% % plotRF.m
 % params.earliest    = 0;
 % params.latest      = 0;
 % params.windowsize  = 25;

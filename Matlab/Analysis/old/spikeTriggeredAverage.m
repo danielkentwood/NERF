@@ -27,7 +27,7 @@ end_times_f=start_times_f+windowsize;
 st_probeXY_fix=cell(1,length(start_times_f));
 st_probeXY_sac=cell(1,length(start_times_s));
 
-% % set parameters for spatial smoothing during inferTuning.m
+% % set parameters for spatial smoothing during plotRF.m
 % params.xwidth=30;
 % params.ywidth=20;
 % params.filtsize=[20 20];
@@ -190,7 +190,7 @@ colorbar('position',[0.1 0.1 .01 .8])
 %     fr_f=probe_fr(1).unit(curUnit).rate(curprobes_f);
 %     params.fig_Handle=fa;
 %     params.axes_Handle=subplot(1,length(start_times_f),i);
-%     out.f=inferTuning(fixX,fixY,fr_f,params);
+%     out.f=plotRF(fixX,fixY,fr_f,params);
 %        
 %     fmax(i)=max(max(out.f.image));
 %     fmin(i)=min(min(out.f.image));    

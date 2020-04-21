@@ -68,7 +68,7 @@ sy = probe.y_oneFixAhead-probe.y_curFix;
 start_times=earliest:wind_inc:latest;
 end_times=start_times+windowsize;
 
-% set parameters for spatial smoothing during inferTuning.m
+% set parameters for spatial smoothing during plotRF.m
 params.xwidth=xwidth;
 params.ywidth=ywidth;
 params.filtsize=filtsize;
@@ -88,7 +88,7 @@ if strcmp(estimator,'PTA')
         %             params.axes_Handle=subplot(1,length(start_times),i);
         %         end
         params.plotflag=0;
-        outtemp1=inferTuning(fixX,fixY,fr,params);
+        outtemp1=plotRF(fixX,fixY,fr,params);
         outimage(:,:,i)=outtemp1.image;
         outtemp2.timeBin = [start_times(i) end_times(i)];
         outtemp2.timeLock = timeLock;

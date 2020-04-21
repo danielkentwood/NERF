@@ -6,7 +6,7 @@ if exist('sessList','var') && ~exist('Trials','var')
 end
 
 if ~exist('probe')
-    probe_preprocess
+    [Trials,probe,filters]=probe_preprocess(Trials);
     curUnit=1;
 end
 chan=find(~cellfun(@isempty,{Trials(1).Electrodes.Units}));

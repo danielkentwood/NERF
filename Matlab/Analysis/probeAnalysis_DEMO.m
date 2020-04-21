@@ -350,7 +350,7 @@ legend({'0','45','90','135','180','225','270','315'},'location','best')
 % 
 % for i=1:32
 %     for u=1:length(probeFR(i).unit)
-%         inferTuning(cpX0,cpY0,probeFR(i).unit{u},params);
+%         plotRF(cpX0,cpY0,probeFR(i).unit{u},params);
 %     end
 % end
 % 
